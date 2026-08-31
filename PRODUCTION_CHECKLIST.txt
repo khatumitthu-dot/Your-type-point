@@ -1,0 +1,31 @@
+YOUR TYPE — Production/Test Checklist
+
+Implemented in this package:
+- Admin authentication and production demo-password guard
+- Product CRUD and bulk actions
+- Size-wise inventory
+- Order status/payment/shipping fields
+- Automatic stock restoration on cancellation
+- Coupon validation with expiry, minimum order and usage limit
+- Coupon discount recalculated server-side (client values are not trusted)
+- Admin notifications API and notification center with polling
+- Low-stock notifications
+- Order notifications
+- Audit log
+- Returns workflow
+- CSV exports and JSON backup
+- Security headers, rate limiting, payload limits and upload restrictions
+- Storefront theme files retained
+
+Integration-ready, requires real provider credentials:
+- Razorpay/Cashfree/other payment gateway
+- Courier/AWB API
+- WhatsApp/SMS/email provider
+- Managed production database
+
+For testing:
+1. Run `npm start`.
+2. Open `/admin.html`.
+3. Set ADMIN_USER and ADMIN_PASS in the environment for production.
+4. Do not use `change-me-now` in production.
+5. Use a staging/test payment account before real payments.

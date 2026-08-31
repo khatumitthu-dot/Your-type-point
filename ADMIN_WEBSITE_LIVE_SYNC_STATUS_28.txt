@@ -1,0 +1,8 @@
+YOUR TYPE 28 — Actual Admin ↔ Website Sync
+
+Base: original project supplied by the user.
+
+Admin product Add/Edit/Delete/Hide/Show/Featured and stock/variant saves use authenticated /api/admin/* endpoints and server-side data.json.
+Storefront reads /api/products with cache disabled and now refreshes product data every 15 seconds and when the tab becomes visible, so an already-open storefront can reflect admin changes without a manual page reload.
+
+This is still dependent on the project being deployed as one application/server. The production database/hosting/payment provider are intentionally not supplied here.

@@ -1,0 +1,29 @@
+YOUR TYPE — FINAL RENDER DEPLOYMENT
+
+IMPORTANT
+This final package uses the local data.json storage already included in the project.
+DATABASE_URL is NOT required for this version to start. Do not add a DATABASE_URL just to fix the old startup error.
+
+RENDER SETTINGS
+1. Source: your GitHub repository containing these files at its ROOT.
+2. Branch: main
+3. Root Directory: leave EMPTY
+4. Build Command: npm install
+5. Start Command: node server.js
+6. Environment Variables:
+   NODE_ENV=production
+   ADMIN_USER=YOUR_ADMIN_USERNAME
+   ADMIN_PASS=YOUR_STRONG_ADMIN_PASSWORD
+
+ADMIN LOGIN
+Use the exact ADMIN_USER and ADMIN_PASS values saved in Render.
+
+MEDIA
+Keep the photos/ folder at the project root. Images/videos are referenced as photos/<filename>.
+
+IF YOU ARE REPLACING THE OLD PROJECT
+The old Render error "DATABASE_URL is not set" comes from the old server.js. Replace the old repository files with this package before redeploying.
+Do not keep the old server.js.
+
+DEPLOY
+After the GitHub files and Render environment variables are correct, trigger Manual Deploy -> Deploy latest commit.

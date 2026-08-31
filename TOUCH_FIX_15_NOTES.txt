@@ -1,0 +1,20 @@
+YOUR TYPE — 15 TOUCH & WORKING FIX
+
+Focus: mobile/touch reliability across storefront and admin panel.
+
+Changes:
+- Strengthened touch-action/click behavior on interactive controls.
+- Increased mobile tap targets to at least 44px for buttons and key controls.
+- Kept product-card clicks separate from heart/add-to-bag controls.
+- Preserved slider pointer/swipe behavior while keeping SHOP/card taps usable.
+- Removed overly broad drag prevention that could interfere with normal interaction.
+- Kept inputs/selects/textareas editable.
+- Added a conservative click safety fallback for disabled controls.
+- Added equivalent touch handling improvements to admin buttons.
+
+Checks performed:
+- Node server.js syntax: OK
+- Inline JS syntax in index.html, bag.html, checkout.html, admin.html: OK
+- Local HTTP checks for /, /bag.html, /checkout.html, /admin.html, /api/products: 200
+
+Note: A live physical-phone test cannot be truthfully claimed from this environment. Please test the supplied demo on the phone/browser.

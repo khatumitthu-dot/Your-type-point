@@ -1,0 +1,19 @@
+YOUR TYPE — CONNECTED ADMIN + STOREFRONT BUILD
+
+Base:
+- Original uploaded project preserved.
+- Original Admin UI/layout preserved; no replacement panel.
+
+Connection:
+- Admin login obtains a server session token.
+- Admin loads products/orders/coupons from /api/admin/data.
+- Product create/edit/delete/hide/show and stock updates write to the same data.json-backed server API.
+- Storefront reads active products from /api/products, so admin product changes are reflected on the storefront.
+- Product colors are now included in safeProduct API output.
+- Coupon create/toggle/edit-compatible server fields are supported.
+- Image uploads use /api/admin/upload.
+
+Important:
+- A real hosted deployment still needs a persistent writable server/database setup; this build uses the existing server's data.json store.
+- Live online payment gateway is intentionally not connected.
+- No claim of production-grade multi-user database durability is made by this build.

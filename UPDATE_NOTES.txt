@@ -1,0 +1,17 @@
+YOUR TYPE — UPDATE
+
+Updated from the supplied FINAL-PREMIUM-TOUCH-FIX ZIP.
+
+Storefront:
+- Fixed wishlist state handling and count refresh.
+- Wishlist now cleans stale saved product names.
+- Heart button feedback remains subtle/premium.
+- Removed mobile tap-highlight/selection blue artifacts from interactive elements.
+- Preserved existing visual theme.
+
+Admin:
+- Product editor remains full-featured: name, prices, category, badge, image upload, gallery and S/M/L/XL/XXL stock.
+- Added image preview before adding a product.
+- Added image type/size validation.
+- Improved mobile layout so product controls do not spill off the screen.
+- Preserved existing visual theme.

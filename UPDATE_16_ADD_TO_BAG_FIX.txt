@@ -1,0 +1,9 @@
+YOUR TYPE — VERSION 16
+
+Focused fix: every product card now has a reliable, premium Add to Bag control.
+- Delegated pointer/click handling works for dynamically-rendered cards.
+- Prevents touch+click double-adds.
+- Stops the parent product-card click from swallowing the purchase action.
+- Adds a consistent premium Add to Bag tab under every product.
+- Existing theme, product imagery, wishlist, bag, checkout and admin panel are preserved.
+- No video was added to the website.

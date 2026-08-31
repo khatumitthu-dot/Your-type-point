@@ -1,0 +1,1 @@
+This merged build keeps the existing customer website/server and replaces the old admin.html with the supplied new Admin Panel UI. Admin login is wired to the existing /api/admin/login endpoint. The panel CRUD state is not yet silently remapped to the older JSON API; that API/schema mapping should be completed and tested before production use.

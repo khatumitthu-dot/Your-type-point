@@ -1,0 +1,42 @@
+YOUR TYPE ADMIN PANEL UPGRADE
+
+Website storefront theme was intentionally left untouched. style.css and customer-facing HTML files were not modified by this upgrade.
+
+Implemented:
+- New admin control-center navigation with Dashboard / Orders / Products / Customers / Reviews / Newsletter / System views.
+- Dashboard metrics: total orders, active revenue, AOV, customers, low-stock products, reviews.
+- Today / 7-day / 30-day sales analytics and cancellation value.
+- Order search, status/payment/date filters.
+- Order status management.
+- Courier, AWB/tracking number, payment status and internal order notes.
+- Shipped/delivered timestamps recorded server-side.
+- Order CSV export.
+- Product add/edit/delete with image upload, gallery, category, badge, old price and per-size stock.
+- Product search/category filters.
+- Low-stock visibility.
+- Customer search, spend/order counts, CSV export and safe account removal.
+- Review approve/hide/delete moderation.
+- Newsletter search, delete and CSV export.
+- Authenticated JSON backup download with sessions excluded.
+- Production safeguard: demo admin password is refused when NODE_ENV=production.
+- Public product reviews now hide reviews marked unapproved.
+- Order creation now records paymentStatus=Pending for COD.
+- Backend validates admin actions through the existing admin session.
+
+Not implemented (requires external business credentials/infrastructure):
+- Real online payments (Razorpay/Cashfree/Stripe etc.). No fake gateway was added.
+- Automatic courier/AWB creation and live carrier tracking.
+- Automatic email/SMS/WhatsApp notifications.
+- True refunds/payment reversals.
+- Migration from JSON storage to PostgreSQL/MySQL/MongoDB.
+
+Production reminder:
+Set ADMIN_USER and ADMIN_PASS in environment variables, enable HTTPS, use reliable backups, and migrate data.json to a managed database before high-traffic production use.
+
+ADMIN PANEL UPGRADE
+- Added a dedicated Media Library tab.
+- Product image previews now correctly use the /photos/ folder.
+- Media Library previews all bundled product images and store videos.
+- Added multi-image upload UI using the existing authenticated /api/admin/upload endpoint.
+- Dashboard now has a direct Media shortcut.
+- Render settings remain: Root Directory blank, Build Command npm install, Start Command node server.js.

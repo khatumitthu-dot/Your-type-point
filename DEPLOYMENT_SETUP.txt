@@ -1,0 +1,26 @@
+YOUR TYPE — DEPLOYMENT SETUP
+
+1) MEDIA FILES
+All website images and videos are stored in the photos/ folder.
+The website references them as photos/<filename>, so keep the folder name exactly "photos".
+
+2) RENDER ENVIRONMENT VARIABLES (REQUIRED)
+In Render -> your Web Service -> Environment, add:
+
+NODE_ENV=production
+ADMIN_USER=your-admin-username
+ADMIN_PASS=your-strong-admin-password
+
+Do NOT put the real ADMIN_PASS into GitHub or this ZIP.
+
+3) START COMMAND
+node server.js
+
+4) AFTER CHANGES
+Save environment variables, then redeploy the service.
+
+5) ADMIN LOGIN
+Use the exact ADMIN_USER and ADMIN_PASS values configured in Render.
+
+6) IMPORTANT
+File names are case-sensitive after deployment. Do not rename files in photos/ or change their capitalization unless you also update the references in the website.
