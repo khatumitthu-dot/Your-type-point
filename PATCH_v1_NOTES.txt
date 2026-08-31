@@ -1,0 +1,5 @@
+YOUR TYPE PATCH V1
+- Folder structure kept intact.
+- Dummy 'Om' and obvious demo entries removed from data.json where found.
+- Theme, homepage, colors, and layout untouched.
+- Next patch will target server.js order management and admin button logic.

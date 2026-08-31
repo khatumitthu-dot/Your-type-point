@@ -26,28 +26,6 @@
       "featured": true
     },
     {
-      "name": "Ghamand Chroma Instinct",
-      "price": "₹1,399",
-      "image": "chroma-instinct-tee.jpg",
-      "badge": "SALE",
-      "oldPrice": "₹2,100",
-      "id": "p_002",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "chroma-instinct-tee.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": true
-    },
-    {
       "name": "Ghamand Buddha's Blessing",
       "price": "₹1,499",
       "image": "buddhas-blessing-tee.jpg",
