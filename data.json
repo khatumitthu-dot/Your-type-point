@@ -4,6 +4,28 @@
   "users": [],
   "products": [
     {
+      "name": "Akari Flight Tee",
+      "price": "₹1,549",
+      "image": "akari-flight-tee.jpg",
+      "badge": "SALE",
+      "oldPrice": "₹2,200",
+      "id": "p_001",
+      "sizes": {
+        "S": 20,
+        "M": 20,
+        "L": 20,
+        "XL": 20,
+        "XXL": 20
+      },
+      "category": "T-Shirts",
+      "images": [
+        "akari-flight-tee.jpg"
+      ],
+      "active": true,
+      "likeKeys": {},
+      "featured": true
+    },
+    {
       "name": "Ghamand Chroma Instinct",
       "price": "₹1,399",
       "image": "chroma-instinct-tee.jpg",
@@ -376,56 +398,20 @@
       "role": "admin",
       "userId": null,
       "expires": 1788231808582
-    },
-    "349059ec579269f243990d282fdf8303842492d69a860f10dd60af1f0688ab20": {
-      "role": "admin",
-      "userId": null,
-      "expires": 1788238611361
-    },
-    "a97fa4b784f5928d6512278352be97f76ffa65e2faa9b6a117a91e2b535ea01a": {
-      "role": "admin",
-      "userId": null,
-      "expires": 1788239132788
     }
   },
   "reviews": [],
   "notifications": [],
   "coupons": [],
   "returns": [],
-  "audit": [
-    {
-      "id": "d4969ea5-78ea-48bf-9df7-ba893f8d8c82",
-      "action": "Website settings updated",
-      "details": "Storefront content/settings + homepage sections",
-      "actor": "admin",
-      "at": "2026-08-31T21:05:34.558Z"
-    },
-    {
-      "id": "c667f87e-48a7-4716-baf8-0c91b9e1b468",
-      "action": "Product deleted",
-      "details": "Akari Flight Tee",
-      "actor": "admin",
-      "at": "2026-08-31T20:56:51.368Z"
-    }
-  ],
+  "audit": [],
   "website": {
-    "heroEyebrow": "NEW COLLECTION / 2026",
-    "showFeatured": true,
-    "showBestSellers": true,
-    "showNewArrivals": true,
-    "showTrending": true,
-    "featuredIds": [
-      "p_002"
-    ],
-    "bestSellerIds": [],
-    "newArrivalIds": [],
-    "womenTopsIds": [],
     "sections": {
       "hero": true,
       "trust": true,
       "collections": true,
       "motion": true,
-      "featured": false,
+      "featured": true,
       "bestSellers": true,
       "newArrivals": true,
       "trending": true,
@@ -433,17 +419,29 @@
       "editorial": true,
       "newsletter": true
     },
-    "announcement": "undefined",
-    "hero": "undefined",
-    "heroSub": "undefined",
-    "social": "undefined",
-    "phone": "undefined",
-    "email": "undefined"
-  },
-  "storeSettings": {
-    "shipping": 99,
-    "freeShipping": 999,
-    "currency": "₹",
-    "supportHours": "Mon–Sat · 10:00–18:00"
+    "featuredIds": [
+      "p_001",
+      "p_002",
+      "p_003",
+      "p_004"
+    ],
+    "bestSellerIds": [
+      "p_002",
+      "p_003",
+      "p_005",
+      "p_008"
+    ],
+    "newArrivalIds": [
+      "p_009",
+      "p_010",
+      "p_011",
+      "p_012"
+    ],
+    "womenTopsIds": [
+      "p_004",
+      "p_005",
+      "p_008",
+      "p_009"
+    ]
   }
 }
