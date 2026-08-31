@@ -104,7 +104,7 @@ header{background:rgba(7,7,7,.92);backdrop-filter:blur(14px);border-bottom:1px s
 <div class="box"><b>Backup</b><p class="muted">Download your current store data.</p><button class="btn" onclick="backup()">Download Backup</button></div></div></section>
 <section id="categories" class="section"><h2>Categories</h2><div class="box"><input id="catName" placeholder="New category name"><button class="btn primary" onclick="addCategory()">+ Add Category</button></div><div id="categoryList" class="grid" style="margin-top:12px"></div></section>
 <section id="wishlist" class="section"><h2>Wishlist</h2><div class="stats"><div class="stat">Total Items<b id="wishTotal">0</b></div><div class="stat">Unique Products<b id="wishProducts">0</b></div></div><div class="box" style="margin-top:12px"><h3>Most-wishlisted Products</h3><div id="wishList"></div></div></section>
-<section id="website" class="section"><h2>Website Control</h2><div class="box"><div class="notice" style="margin-bottom:12px"><b>LIVE STOREFRONT CONTROL</b><br><span class="muted">Website ka content yahin se manage karo. Save & Publish ke baad customer website database se update hogi.</span></div><h3>Homepage Sections</h3><div class="notice" style="margin-bottom:10px"><b>HOMEPAGE LIVE CONTROL</b><br><span class="muted">Kisi bhi section ko ON/OFF karo. Website ka design aur panel ka mobile size same rahega.</span></div><div id="homepageSectionControls" class="quick" style="margin-bottom:16px"></div><h3>Homepage Content</h3><label>Announcement bar</label><input id="siteAnnouncement" placeholder="FREE SHIPPING ON PREPAID ORDERS ABOVE ₹999"><label>Hero eyebrow</label><input id="siteHeroEyebrow" placeholder="NEW COLLECTION / 2026"><label>Hero title</label><input id="siteHero" placeholder="Engineered for the Street"><label>Hero subtitle</label><input id="siteHeroSub" placeholder="Premium fabrics. Heavy graphics. Built for those who move different."><label>Featured product IDs (comma separated)</label><input id="siteFeatured" placeholder="p_001, p_002, p_003, p_004"><label>Best Sellers product IDs (comma separated)</label><input id="siteBestSellerIds" placeholder="p_002, p_003, p_005, p_008"><label>New Collection product IDs (comma separated)</label><input id="siteNewArrivalIds" placeholder="p_009, p_010, p_011, p_012"><label>Women’s Tops product IDs (comma separated)</label><input id="siteWomenTopsIds" placeholder="p_004, p_005, p_008, p_009"><p class="muted" style="margin:8px 0 0">Products tab se ID copy karke kisi bhi section mein paste karo. Order bhi yahin se control hoga — pehla ID pehla product dikhayega.</p><div class="quick" style="margin-top:10px"><label class="box"><input id="siteShowFeatured" type="checkbox"> Show Featured Products</label><label class="box"><input id="siteShowBest" type="checkbox"> Show Best Sellers</label><label class="box"><input id="siteShowNew" type="checkbox"> Show New Collection</label><label class="box"><input id="siteShowTrending" type="checkbox"> Show Trending</label></div><h3 style="margin-top:16px">Store Contact</h3><label>Instagram / social link</label><input id="siteSocial" placeholder="https://instagram.com/..."><label>Store phone</label><input id="sitePhone"><label>Store email</label><input id="siteEmail" type="email"><hr style="border-color:#292929"><h3>Store Rules</h3><label>Shipping charge (₹)</label><input id="storeShipping" type="number" min="0"><label>Free shipping above (₹)</label><input id="storeFreeShipping" type="number" min="0"><label>Support hours</label><input id="storeSupportHours" placeholder="Mon–Sat · 10:00–18:00"><button class="btn primary" onclick="saveWebsiteControl()">SAVE & PUBLISH TO WEBSITE</button><button class="btn" onclick="syncFromServer(true)">REFRESH FROM WEBSITE</button></div></section>
+<section id="website" class="section"><h2>Website Control</h2><div class="box"><div class="notice" style="margin-bottom:12px"><b>LIVE STOREFRONT CONTROL</b><br><span class="muted">Website ka content yahin se manage karo. Save & Publish ke baad customer website database se update hogi.</span></div><div class="adminLiveCard"><b>● SECTION + PRODUCT CONTROL</b><span class="muted">Neeche se website ke sections ON/OFF karo, har product section mein products add/remove karo, aur kisi product ko highlight karo.</span><div style="margin-top:10px"><button class="btn primary" type="button" onclick="openSectionManager()">OPEN SECTION MANAGER</button></div></div><h3>Homepage Sections</h3><div class="notice" style="margin-bottom:10px"><b>HOMEPAGE LIVE CONTROL</b><br><span class="muted">Kisi bhi section ko ON/OFF karo. Website ka design aur panel ka mobile size same rahega.</span></div><div id="homepageSectionControls" class="quick" style="margin-bottom:16px"></div><h3>Homepage Content</h3><label>Announcement bar</label><input id="siteAnnouncement" placeholder="FREE SHIPPING ON PREPAID ORDERS ABOVE ₹999"><label>Hero eyebrow</label><input id="siteHeroEyebrow" placeholder="NEW COLLECTION / 2026"><label>Hero title</label><input id="siteHero" placeholder="Engineered for the Street"><label>Hero subtitle</label><input id="siteHeroSub" placeholder="Premium fabrics. Heavy graphics. Built for those who move different."><label>Featured product IDs (comma separated)</label><input id="siteFeatured" placeholder="p_001, p_002, p_003, p_004"><label>Best Sellers product IDs (comma separated)</label><input id="siteBestSellerIds" placeholder="p_002, p_003, p_005, p_008"><label>New Collection product IDs (comma separated)</label><input id="siteNewArrivalIds" placeholder="p_009, p_010, p_011, p_012"><label>Women’s Tops product IDs (comma separated)</label><input id="siteWomenTopsIds" placeholder="p_004, p_005, p_008, p_009"><p class="muted" style="margin:8px 0 0">Products tab se ID copy karke kisi bhi section mein paste karo. Order bhi yahin se control hoga — pehla ID pehla product dikhayega.</p><div class="quick" style="margin-top:10px"><label class="box"><input id="siteShowFeatured" type="checkbox"> Show Featured Products</label><label class="box"><input id="siteShowBest" type="checkbox"> Show Best Sellers</label><label class="box"><input id="siteShowNew" type="checkbox"> Show New Collection</label><label class="box"><input id="siteShowTrending" type="checkbox"> Show Trending</label></div><h3 style="margin-top:16px">Store Contact</h3><label>Instagram / social link</label><input id="siteSocial" placeholder="https://instagram.com/..."><label>Store phone</label><input id="sitePhone"><label>Store email</label><input id="siteEmail" type="email"><hr style="border-color:#292929"><h3>Store Rules</h3><label>Shipping charge (₹)</label><input id="storeShipping" type="number" min="0"><label>Free shipping above (₹)</label><input id="storeFreeShipping" type="number" min="0"><label>Support hours</label><input id="storeSupportHours" placeholder="Mon–Sat · 10:00–18:00"><button class="btn primary" onclick="saveWebsiteControl()">SAVE & PUBLISH TO WEBSITE</button><button class="btn" onclick="syncFromServer(true)">REFRESH FROM WEBSITE</button></div></section>
 <section id="reports" class="section"><h2>Reports</h2><div class="box"><label>From</label><input id="reportFrom" type="date"><label>To</label><input id="reportTo" type="date"><div class="tabs"><button class="btn primary" onclick="exportReportType('sales')">Sales CSV</button><button class="btn" onclick="exportReportType('products')">Product CSV</button><button class="btn" onclick="exportReportType('inventory')">Inventory CSV</button><button class="btn" onclick="exportReportType('customers')">Customer CSV</button><button class="btn" onclick="exportReportType('orders')">Orders CSV</button></div><div id="reportPreview" class="notice" style="margin-top:10px"></div></div></section>
 <section id="settings" class="section"><h2>Settings & Integrations</h2><div class="menu">
 <div class="box"><b>Payment Gateway</b><p class="muted">Merchant keys are never stored in this demo.</p><button class="btn" onclick="gateway()">Configure</button></div>
@@ -146,7 +146,7 @@ state.products.forEach(p=>{if(p.hidden===undefined)p.hidden=false;if(p.featured=
 save();
 function prod(id){return state.products.find(p=>p.id===id)}
 function money(n){return '₹'+Number(n||0).toLocaleString('en-IN')}
-function go(id,btn){let e=document.getElementById(id);if(!e){toast('Section not found');return}document.querySelectorAll('.section').forEach(x=>x.classList.remove('on'));e.classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('adminTabs').style.display=['store','account','customerOrders'].includes(id)?'none':'flex';if(id==='store')filterStore('all');if(id==='orders')renderOrders();if(id==='inventory')renderInventory();if(id==='products')renderProducts();if(id==='media')renderMedia();if(id==='variants'){syncVariantTab()}if(id==='coupons')renderCoupons();if(id==='customerOrders')renderCustomerOrders();updateDash();window.scrollTo({top:0,behavior:'smooth'})}
+function go(id,btn){let e=document.getElementById(id);if(!e){toast('Section not found');return}document.querySelectorAll('.section').forEach(x=>x.classList.remove('on'));e.classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');if(!['store','account','customerOrders'].includes(id))sessionStorage.setItem('ytAdminSection',id);document.getElementById('adminTabs').style.display=['store','account','customerOrders'].includes(id)?'none':'flex';if(id==='store')filterStore('all');if(id==='orders')renderOrders();if(id==='inventory')renderInventory();if(id==='products')renderProducts();if(id==='media')renderMedia();if(id==='variants'){syncVariantTab()}if(id==='coupons')renderCoupons();if(id==='customerOrders')renderCustomerOrders();updateDash();window.scrollTo({top:0,behavior:'smooth'})}
 function adminLogin(){openModal(`<h2>Admin Login</h2><input id=loginUser value="admin" autocomplete="username"><input id=loginPass type=password placeholder="Admin password" autocomplete="current-password"><p class=muted>Sign in with the admin credentials configured on your server.</p><button class="btn primary" onclick="doAdminLogin()">Sign In</button>`)}
 async function doAdminLogin(){const username=document.getElementById("loginUser").value.trim(),password=document.getElementById("loginPass").value;if(!username||!password){toast("Enter username and password");return}try{const r=await fetch("/api/admin/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({username,password})}),x=await r.json();if(!r.ok){toast(x.error||"Login failed");return}sessionStorage.setItem("adminToken",x.token);closeModal();go("dashboard")}catch(e){toast("Unable to connect to server")}}
 function filterStore(cat){let a=(cat==='all'?state.products:state.products.filter(p=>p.category===cat)).filter(p=>!p.hidden);storeGrid.innerHTML=a.map(p=>{let stock=state.inventory.filter(x=>x[0]===p.id).reduce((a,x)=>a+x[2],0);return `<div class=card><div class=pic>${picHtml(p)}</div><div class=info><b>${p.name}</b><p class=muted>${p.category} · SKU ${p.sku}</p><b>${money(p.price)}</b><p>${stock?stock+' units available':'❌ Out of stock'}</p><button class=btn ${stock?'':'danger'} onclick="buy('${p.id}')">${stock?'View / Order':'Out of Stock'}</button></div></div>`}).join('')}
@@ -340,9 +340,12 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
 
   let serverProducts=[];
 
+  window.__ytAdminApi = api;
+
   async function syncFromServer(showToast){
     const d=await api('/api/admin/data');
     serverProducts=Array.isArray(d.products)?d.products:[];
+    window.serverProducts=serverProducts;
     if(d.website){state.website={...state.website,...d.website};if(d.storeSettings)state.storeSettings=d.storeSettings;loadWebsiteControl();}
     state.products=serverProducts.map(toLocalProduct);
     rebuildInventory();
@@ -364,6 +367,8 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
     updateDash();
     if(showToast) toast('Admin synced with website database');
   }
+
+  window.__ytSyncFromServer = syncFromServer;
 
   async function doAdminLogin(){
     const username=document.getElementById("loginUser").value.trim();
@@ -543,9 +548,30 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
     }catch(e){status.innerHTML=`<span class="dangerText">Upload failed: ${e.message||'Server error'}</span>`;toast(e.message||'Upload failed')}
   }
 
+  // Expose server-backed handlers to the existing inline buttons.
+  window.doAdminLogin=doAdminLogin;
+  window.saveProduct=saveProduct;
+  window.saveEdit=saveEdit;
+  window.deleteProduct=deleteProduct;
+  window.toggleProduct=toggleProduct;
+  window.toggleFeatured=toggleFeatured;
+  window.bulkProducts=bulkProducts;
+  window.stockUpdate=stockUpdate;
+  window.saveVariantManager=saveVariantManager;
+  window.saveCoupon=saveCoupon;
+  window.toggleCoupon=toggleCoupon;
+  window.setOrderStatus=setOrderStatus;
+  window.cancelOrder=cancelOrder;
+  window.saveShipment=saveShipment;
+
   async function syncOnOpen(){
     if(sessionStorage.getItem('adminToken')){
-      try{await syncFromServer(false)}catch(_){}
+      try{
+        await syncFromServer(false);
+        const savedSection=sessionStorage.getItem('ytAdminSection')||'dashboard';
+        const target=document.getElementById(savedSection)?savedSection:'dashboard';
+        go(target);
+      }catch(_){}
     }
   }
   window.addEventListener('load',syncOnOpen);
@@ -596,6 +622,67 @@ window.saveProduct=async function(){try{const files=[...(document.getElementById
   const oldLoad2=window.loadWebsiteControl;
   window.loadWebsiteControl=function(){try{if(typeof oldLoad2==='function')oldLoad2();}catch(e){};const w=(typeof state!=='undefined'&&state.website)||{};setSections(w.sections||{});};
   renderControls();setTimeout(()=>{if(typeof loadWebsiteControl==='function')loadWebsiteControl();else setSections({});},0);
+})();
+</script>
+
+<style>
+/* SECTION MANAGER - keeps existing admin theme intact */
+#sectionManager .smGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#sectionManager .smCard{background:#101010;border:1px solid #2a2a2a;border-radius:12px;padding:12px}
+#sectionManager .smProductList{display:grid;gap:7px;margin-top:9px;max-height:360px;overflow:auto}
+#sectionManager .smProduct{display:flex;align-items:center;gap:8px;border:1px solid #262626;border-radius:9px;padding:8px;background:#151515}
+#sectionManager .smProduct small{display:block;color:#888}
+#sectionManager .smProduct .smName{flex:1;min-width:0}
+#sectionManager .smProduct .smName b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#sectionManager .smBadge{font-size:10px;border:1px solid #444;border-radius:99px;padding:3px 6px;color:#aaa}
+#sectionManager .smHint{color:#8f8f8f;font-size:12px;line-height:1.5}
+@media(max-width:650px){#sectionManager .smGrid{grid-template-columns:1fr}}
+</style>
+
+<script>
+/* YOUR TYPE — dedicated homepage section + product manager. No existing panel section is removed. */
+(function(){
+  const defs=[
+    ['hero','Hero Section'],['trust','Trust / Benefits'],['collections','Collections'],['motion','Watch in Motion'],
+    ['featured','Featured Products'],['bestSellers','Best Sellers'],['newArrivals','New Collection'],['trending','Trending Now'],['womenTops','Women’s Tops'],
+    ['editorial','Editorial Banner'],['newsletter','Newsletter / Stay in the Loop']
+  ];
+  const productSections=[['featured','Featured Products','siteFeatured'],['bestSellers','Best Sellers','siteBestSellerIds'],['newArrivals','New Collection','siteNewArrivalIds'],['womenTops','Women’s Tops','siteWomenTopsIds']];
+  const A=async(url,opt={})=>{const h=Object.assign({'Content-Type':'application/json'},opt.headers||{}),t=sessionStorage.getItem('adminToken')||'';if(t)h.Authorization='Bearer '+t;const r=await fetch(url,Object.assign({},opt,{headers:h}));let d={};try{d=await r.json()}catch(_){}if(!r.ok)throw Error(d.error||'Request failed');return d};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function openModalShell(html){if(typeof openModal==='function')openModal(html);else{const m=document.getElementById('modal'),b=document.getElementById('modalBody');if(m&&b){b.innerHTML=html;m.classList.add('on')}}}
+  function selectedFrom(id){return new Set((document.getElementById(id)?.value||'').split(',').map(x=>x.trim()).filter(Boolean))}
+  async function openSectionManager(){
+    try{
+      const d=await A('/api/admin/data'); const w=d.website||{}; const ps=Array.isArray(d.products)?d.products:[];
+      const selected={featured:new Set((w.featuredIds||[]).map(String)),bestSellers:new Set((w.bestSellerIds||[]).map(String)),newArrivals:new Set((w.newArrivalIds||[]).map(String)),womenTops:new Set((w.womenTopsIds||[]).map(String))};
+      let html='<div id="sectionManager"><h2>Website Section Manager</h2><p class="smHint">Yahin se homepage ke sections ON/OFF karo. Product sections mein checkbox lagakar product add karo, hatao ya order badlo. Highlight checkbox product ko Featured/Highlight banata hai.</p>';
+      html+='<div class="box"><b>Section visibility</b><div class="smGrid" style="margin-top:10px">'+defs.map(([k,n])=>`<label class="smCard"><input type="checkbox" id="sm_sec_${k}" ${w.sections&&w.sections[k]===false?'':'checked'}> <b>${n}</b></label>`).join('')+'</div></div>';
+      html+='<div class="box" style="margin-top:12px"><b>Product placement</b><p class="smHint">Checked products isi order mein website par dikhेंगे. Product ko ek section se remove karne ke liye checkbox hata do.</p>';
+      for(const [key,title] of productSections){
+        html+=`<div class="smCard" style="margin-top:10px"><div style="display:flex;justify-content:space-between;gap:8px"><b>${title}</b><span class="smBadge" id="sm_count_${key}">0 selected</span></div><div class="smProductList">`;
+        ps.forEach(p=>{const id=String(p.id),checked=selected[key].has(id),highlight=Boolean(p.featured);html+=`<label class="smProduct"><input type="checkbox" class="sm_${key}" value="${esc(id)}" ${checked?'checked':''}> <span class="smName"><b>${esc(p.name)}</b><small>${esc(id)} · ${esc(p.category||'T-Shirts')} · ${esc(p.price||'')}</small></span><span title="Highlight product"><input type="checkbox" class="sm_highlight" data-product-id="${esc(id)}" ${highlight?'checked':''}> <small>Highlight</small></span></label>`});
+        html+='</div></div>';
+      }
+      html+='</div><div class="box" style="margin-top:12px"><b>How it works</b><p class="smHint">Add Product se naya product database mein aayega. Yahan checkbox se usko Featured, Best Sellers, New Collection ya Women’s Tops mein place karo. Delete karne par product automatically sab sections se remove ho jayega.</p></div><button class="btn primary" type="button" onclick="saveSectionManager()">SAVE SECTION CONTROL</button> <button class="btn" type="button" onclick="closeModal()">CANCEL</button></div>';
+      openModalShell(html);
+      defs.forEach(()=>{});
+      productSections.forEach(([key])=>{document.querySelectorAll('.sm_'+key).forEach(e=>e.addEventListener('change',()=>{const n=document.querySelectorAll('.sm_'+key+':checked').length,c=document.getElementById('sm_count_'+key);if(c)c.textContent=n+' selected'}));const n=document.querySelectorAll('.sm_'+key+':checked').length,c=document.getElementById('sm_count_'+key);if(c)c.textContent=n+' selected'});
+    }catch(e){toast(e.message||'Could not open section manager')}
+  }
+  window.openSectionManager=openSectionManager;
+  window.saveSectionManager=async function(){
+    try{
+      const sections={};defs.forEach(([k])=>{const e=document.getElementById('sm_sec_'+k);if(e)sections[k]=e.checked});
+      const getIds=key=>Array.from(document.querySelectorAll('.sm_'+key+':checked')).map(e=>String(e.value));
+      const featuredIds=getIds('featured'),bestSellerIds=getIds('bestSellers'),newArrivalIds=getIds('newArrivals'),womenTopsIds=getIds('womenTops');
+      await A('/api/admin/website',{method:'PATCH',body:JSON.stringify({sections,featuredIds,bestSellerIds,newArrivalIds,womenTopsIds,featured:featuredIds})});
+      const highlights=Array.from(document.querySelectorAll('.sm_highlight')).map(e=>({id:String(e.dataset.productId),featured:e.checked}));
+      for(const x of highlights) await A('/api/admin/products/'+encodeURIComponent(x.id),{method:'PATCH',body:JSON.stringify({featured:x.featured})});
+      if(typeof syncFromServer==='function')await syncFromServer(false);
+      closeModal();toast('Website sections + product placements saved live ✓');
+    }catch(e){toast(e.message||'Could not save section manager')}
+  };
 })();
 </script>
 </body></html>
