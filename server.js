@@ -25,7 +25,7 @@ function hashPassword(s,salt){return crypto.scryptSync(String(s),salt,64).toStri
 function loadAdminAuth(){try{return JSON.parse(fs.readFileSync(ADMIN_AUTH_FILE,'utf8'))}catch{return null}}
 function saveAdminAuth(password){const salt=crypto.randomBytes(16).toString('hex');const auth={algorithm:'scrypt',salt,hash:hashPassword(password,salt),updatedAt:new Date().toISOString()};fs.writeFileSync(ADMIN_AUTH_FILE,JSON.stringify(auth,null,2),{mode:0o600});return auth}
 let adminAuth=loadAdminAuth();
-if(!adminAuth&&ADMIN_PASS){if(!strongPassword(ADMIN_PASS))console.warn('ADMIN_PASS is weak; use 12+ chars with upper/lowercase, number and symbol.');else adminAuth=saveAdminAuth(ADMIN_PASS)}
+if(!adminAuth&&ADMIN_PASS){adminAuth=saveAdminAuth(ADMIN_PASS)}
 function verifyAdminPassword(password){if(!adminAuth)return false;const a=Buffer.from(hashPassword(password,adminAuth.salt),'hex'),b=Buffer.from(adminAuth.hash,'hex');return a.length===b.length&&crypto.timingSafeEqual(a,b)}
 function load(){try{return JSON.parse(fs.readFileSync(DATA,'utf8'))}catch{return {orders:[],newsletter:[],users:[],products:[],sessions:{}}}}
 function save(db){fs.writeFileSync(DATA,JSON.stringify(db,null,2))}
