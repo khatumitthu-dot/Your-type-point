@@ -376,6 +376,16 @@
       "role": "admin",
       "userId": null,
       "expires": 1788231808582
+    },
+    "30e5d8e05b2bad7d53f81a6dcb7519a4cf469bf4505f5dfe9549d39105790fdc": {
+      "role": "admin",
+      "userId": null,
+      "expires": 1788327687547
+    },
+    "b219a20b9a4cfdbf1dda5cb57c15a2766c9141fb55df8dd9c3cf2492784bdfd0": {
+      "role": "admin",
+      "userId": null,
+      "expires": 1788327687550
     }
   },
   "reviews": [],
@@ -384,19 +394,11 @@
   "returns": [],
   "audit": [],
   "website": {
-    "sections": {
-      "hero": true,
-      "trust": true,
-      "collections": true,
-      "motion": true,
-      "featured": true,
-      "bestSellers": true,
-      "newArrivals": true,
-      "trending": true,
-      "womenTops": true,
-      "editorial": true,
-      "newsletter": true
-    },
+    "heroEyebrow": "NEW COLLECTION / 2026",
+    "showFeatured": true,
+    "showBestSellers": true,
+    "showNewArrivals": true,
+    "showTrending": true,
     "featuredIds": [
       "p_001",
       "p_002",
@@ -420,6 +422,25 @@
       "p_005",
       "p_008",
       "p_009"
-    ]
+    ],
+    "sections": {
+      "hero": true,
+      "trust": true,
+      "collections": true,
+      "motion": true,
+      "featured": true,
+      "bestSellers": true,
+      "newArrivals": true,
+      "trending": true,
+      "womenTops": true,
+      "editorial": true,
+      "newsletter": true
+    }
+  },
+  "storeSettings": {
+    "shipping": 99,
+    "freeShipping": 999,
+    "currency": "₹",
+    "supportHours": "Mon–Sat · 10:00–18:00"
   }
 }

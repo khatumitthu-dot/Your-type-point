@@ -2,7 +2,7 @@ const http=require('http'),fs=require('fs'),path=require('path'),crypto=require(
 const ROOT=__dirname, DATA=path.join(ROOT,'data.json'), PORT=process.env.PORT||3000;
 const ADMIN_USER=process.env.ADMIN_USER||'admin', ADMIN_PASS=process.env.ADMIN_PASS||'change-me-now';
 const DEMO_ADMIN_PASSWORD=ADMIN_PASS==='change-me-now';
-const STATUSES=['New','Processing','Shipped','Delivered','Cancelled'];
+const STATUSES=['New','Processing','Packed','Shipped','Out for Delivery','Delivered','Cancelled'];
 function load(){try{return JSON.parse(fs.readFileSync(DATA,'utf8'))}catch{return {orders:[],newsletter:[],users:[],products:[],sessions:{}}}}
 function save(db){fs.writeFileSync(DATA,JSON.stringify(db,null,2))}
 function audit(action,details,actor='admin'){db.audit.unshift({id:crypto.randomUUID(),action,details:String(details||'').slice(0,500),actor,at:new Date().toISOString()});db.audit=db.audit.slice(0,500)}

@@ -343,10 +343,36 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
   async function syncFromServer(showToast){
     const d=await api('/api/admin/data');
     serverProducts=Array.isArray(d.products)?d.products:[];
-    if(d.website){state.website={...state.website,...d.website};if(d.storeSettings)state.storeSettings=d.storeSettings;loadWebsiteControl();}
+    if(d.website){state.website={...state.website,...d.website};if(d.storeSettings){state.storeSettings=d.storeSettings;state.settings={...state.settings,shipping:Number(d.storeSettings.shipping??state.settings.shipping??99),freeShipping:Number(d.storeSettings.freeShipping??state.settings.freeShipping??999)}}loadWebsiteControl();}
     state.products=serverProducts.map(toLocalProduct);
     rebuildInventory();
-    state.orders=Array.isArray(d.orders)?d.orders:[];
+    const rawOrders=Array.isArray(d.orders)?d.orders:[];
+    state.orders=rawOrders.map(o=>{
+      const first=Array.isArray(o.items)&&o.items.length?o.items[0]:{};
+      const linked=(state.products||[]).find(p=>String(p.name||'')===String(first.name||'') && String(p.image||'')===String(first.image||'')) ||
+                   (state.products||[]).find(p=>String(p.name||'')===String(first.name||''));
+      const moneyNumber=v=>Number(String(v??0).replace(/[^0-9.]/g,''))||0;
+      return {
+        ...o,
+        id:String(o.orderId||o.id||''),
+        customer:String(o.customer||o.name||''),
+        productId:o.productId||linked?.id||'',
+        size:o.size||first.size||'',
+        color:o.color||first.color||'',
+        qty:Number(o.qty??first.qty??1)||1,
+        price:moneyNumber(o.price??first.price??0),
+        total:moneyNumber(o.total??o.subtotal??first.price??0),
+        payment:o.payment||'',
+        address:o.address||'',
+        phone:o.phone||'',
+        awb:o.awb||'',
+        trackingNumber:o.trackingNumber||'',
+        tracking_url:o.tracking_url||'',
+        courier:o.courier||'',
+        verified:Boolean(o.verified),
+        items:Array.isArray(o.items)?o.items:[]
+      };
+    });
     state.coupons=(d.coupons||[]).map(c=>({
       id:c.id,code:c.code,percent:c.type==='percent'?Number(c.value||0):0,
       min:Number(c.minOrder||0),expiry:c.expiresAt?String(c.expiresAt).slice(0,10):'',
@@ -550,6 +576,8 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
       setTimeout(()=>{try{go(saved)}catch(_){}},50);
     }
   }
+  window.api=api;
+  window.syncFromServer=syncFromServer;
   window.addEventListener('load',syncOnOpen);
 })();
 </script>
@@ -568,7 +596,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
  window.editProduct=function(id){const p=prod(id);if(!p)return;const w=(typeof state!=='undefined'&&state.website)||{};const has=(key)=>Array.isArray(w[key])&&w[key].map(String).includes(String(id));openModal(`<h2>Edit Product</h2><input id=en value="${String(p.name||'').replace(/"/g,'&quot;')}"><input id=es value="${String(p.sku||'').replace(/"/g,'&quot;')}"><input id=ep type=number value="${p.price||0}"><input id=eoldprice value="${String(p.oldPrice||'').replace(/"/g,'&quot;')}" placeholder="MRP / Old Price"><input id=ebadge value="${String(p.badge||'').replace(/"/g,'&quot;')}" placeholder="Badge"><input id=ecost type=number value="${p.cost||0}"><input id=ec value="${String(p.category||'').replace(/"/g,'&quot;')}"><input id=ez value="${(p.sizes||[]).join(',')}" placeholder="Sizes"><input id=ecolors value="${(p.colors||[]).join(',')}" placeholder="Colors"><input type=file id=ei multiple accept="image/png,image/jpeg,image/webp"><textarea id=edesc placeholder="Description">${String(p.description||'').replace(/</g,'&lt;')}</textarea><label class="box"><input type=checkbox id=eactive ${p.active===false?'':'checked'}> Visible on website</label><div class="box" style="margin:10px 0"><b>Homepage placement</b><p class="muted" style="margin:4px 0 8px">Tick/untick sections. Save karte hi website update ho jayegi.</p><label><input type=checkbox id=efeatured ${has('featuredIds')?'checked':''}> Featured Products</label><label><input type=checkbox id=ebest ${has('bestSellerIds')?'checked':''}> Best Sellers</label><label><input type=checkbox id=enew ${has('newArrivalIds')?'checked':''}> New Collection</label><label><input type=checkbox id=ewomen ${has('womenTopsIds')?'checked':''}> Women’s Tops</label></div><button class="btn primary" onclick="saveEdit('${id}')">SAVE CHANGES</button>`)};
 async function updateProductSections(id,flags){const d=await A('/api/admin/data');const w={...(d.website||{})};const map={featured:'featuredIds',bestSellers:'bestSellerIds',newArrivals:'newArrivalIds',womenTops:'womenTopsIds'};for(const [flag,key] of Object.entries(map)){let arr=Array.isArray(w[key])?w[key].map(String):[];arr=arr.filter(x=>x!==String(id));if(flags[flag])arr.push(String(id));w[key]=arr;}await A('/api/admin/website',{method:'PATCH',body:JSON.stringify({featuredIds:w.featuredIds||[],bestSellerIds:w.bestSellerIds||[],newArrivalIds:w.newArrivalIds||[],womenTopsIds:w.womenTopsIds||[]})});}
 window.saveProduct=async function(){try{const files=[...(document.getElementById('nimg')?.files||[])];let uploaded=[];for(const f of files){if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>5*1024*1024)throw Error('Images must be PNG/JPG/WEBP and under 5MB');const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const u=await A('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name.replace(/[^a-zA-Z0-9._-]/g,'_'),data})});uploaded.push(u.filename)}const sizes={S:0,M:0,L:0,XL:0,XXL:0};(document.getElementById('nsizes').value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean).forEach(k=>{if(k in sizes)sizes[k]=Math.max(0,Number(document.getElementById('nstock').value||0))});const body={name:document.getElementById('np').value.trim(),sku:document.getElementById('nsku').value.trim(),price:String(Number(document.getElementById('nprice').value||0)),oldPrice:document.getElementById('noldprice').value.trim(),badge:document.getElementById('nbadge').value.trim(),cost:Number(document.getElementById('ncost').value||0),category:document.getElementById('ncat').value,description:document.getElementById('ndesc').value,images:uploaded.length?uploaded:['ornament.jpg'],image:uploaded[0]||'ornament.jpg',colors:(document.getElementById('ncolors').value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean),sizes,active:true};if(!body.name||!body.price||body.price==='0')throw Error('Name and selling price are required');const created=await A('/api/admin/products',{method:'POST',body:JSON.stringify(body)});await updateProductSections(created.id,{featured:document.getElementById('nfeatured')?.checked,bestSellers:document.getElementById('nbest')?.checked,newArrivals:document.getElementById('nnew')?.checked,womenTops:document.getElementById('nwomen')?.checked});await syncFromServer(false);closeModal();toast('Product added + homepage placement saved ✓')}catch(e){toast(e.message||'Could not add product')}};
- window.saveEdit=async function(id){try{const p=state.products.find(x=>String(x.id)===String(id));if(!p)throw Error('Product not found');const files=[...(document.getElementById('ei')?.files||[])];let uploaded=[];for(const f of files){if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>5*1024*1024)throw Error('Images must be PNG/JPG/WEBP and under 5MB');const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const u=await A('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name.replace(/[^a-zA-Z0-9._-]/g,'_'),data})});uploaded.push(u.filename)}const live=(await A('/api/products',{cache:'no-store'})).products||[];const old=live.find(x=>String(x.id)===String(id))||{};const sizes={S:0,M:0,L:0,XL:0,XXL:0};['S','M','L','XL','XXL'].forEach(k=>sizes[k]=Number(old.sizes?.[k]??0));const list=(document.getElementById('ez').value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean);Object.keys(sizes).forEach(k=>{if(!list.includes(k))sizes[k]=0});const body={name:document.getElementById('en').value.trim(),sku:document.getElementById('es').value.trim(),price:String(Number(document.getElementById('ep').value||0)),oldPrice:document.getElementById('eoldprice').value.trim(),badge:document.getElementById('ebadge').value.trim(),cost:Number(document.getElementById('ecost').value||0),category:document.getElementById('ec').value.trim(),description:document.getElementById('edesc').value,colors:(document.getElementById('ecolors').value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean),sizes};if(uploaded.length){body.image=uploaded[0];body.images=(old.images||[]).concat(uploaded)}await A('/api/admin/products/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify(body)});await updateProductSections(id,{featured:document.getElementById('efeatured')?.checked,bestSellers:document.getElementById('ebest')?.checked,newArrivals:document.getElementById('enew')?.checked,womenTops:document.getElementById('ewomen')?.checked});await syncFromServer(false);closeModal();toast('Product updated + homepage placement saved ✓')}catch(e){toast(e.message||'Could not update product')}};
+ window.saveEdit=async function(id){try{const p=state.products.find(x=>String(x.id)===String(id));if(!p)throw Error('Product not found');const files=[...(document.getElementById('ei')?.files||[])];let uploaded=[];for(const f of files){if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>5*1024*1024)throw Error('Images must be PNG/JPG/WEBP and under 5MB');const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const u=await A('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name.replace(/[^a-zA-Z0-9._-]/g,'_'),data})});uploaded.push(u.filename)}const live=(await A('/api/products',{cache:'no-store'})).products||[];const old=live.find(x=>String(x.id)===String(id))||{};const sizes={S:0,M:0,L:0,XL:0,XXL:0};['S','M','L','XL','XXL'].forEach(k=>sizes[k]=Number(old.sizes?.[k]??0));const list=(document.getElementById('ez').value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean);Object.keys(sizes).forEach(k=>{if(!list.includes(k))sizes[k]=0});const body={name:document.getElementById('en').value.trim(),sku:document.getElementById('es').value.trim(),price:String(Number(document.getElementById('ep').value||0)),oldPrice:document.getElementById('eoldprice').value.trim(),badge:document.getElementById('ebadge').value.trim(),cost:Number(document.getElementById('ecost').value||0),category:document.getElementById('ec').value.trim(),description:document.getElementById('edesc').value,colors:(document.getElementById('ecolors').value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean),sizes,active:document.getElementById('eactive')?.checked!==false,featured:Boolean(document.getElementById('efeatured')?.checked)};if(uploaded.length){body.image=uploaded[0];body.images=(old.images||[]).concat(uploaded)}await A('/api/admin/products/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify(body)});await updateProductSections(id,{featured:document.getElementById('efeatured')?.checked,bestSellers:document.getElementById('ebest')?.checked,newArrivals:document.getElementById('enew')?.checked,womenTops:document.getElementById('ewomen')?.checked});await syncFromServer(false);closeModal();toast('Product updated + homepage placement saved ✓')}catch(e){toast(e.message||'Could not update product')}};
  setTimeout(()=>{try{loadWebsiteControl()}catch(_){}},250);
 })();
 </script>
@@ -625,7 +653,95 @@ window.saveProduct=async function(){try{const files=[...(document.getElementById
     }catch(e){toast(e.message||'Could not publish website settings')}
   };
   const oldLoad=window.loadWebsiteControl;
-  window.loadWebsiteControl=function(){try{oldLoad&&oldLoad()}catch(_){} const w=state.website||{};const set=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v??''};set('siteHighlight',w.highlight||'');set('siteBestSellerIds',(w.bestSellerIds||[]).join(','));set('siteNewArrivalIds',(w.newArrivalIds||[]).join(','));set('siteWomenTopsIds',(w.womenTopsIds||[]).join(','));};
+  window.loadWebsiteControl=function(){try{oldLoad&&oldLoad()}catch(_){} const w=state.website||{};const set=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v??''};set('siteHighlight',w.highlight||'');set('siteBestSellerIds',(w.bestSellerIds||[]).join(','));if(document.getElementById('siteShowFeatured'))document.getElementById('siteShowFeatured').checked=w.showFeatured!==false;set('siteNewArrivalIds',(w.newArrivalIds||[]).join(','));set('siteWomenTopsIds',(w.womenTopsIds||[]).join(','));};
 })();
 </script>
+
+<script>
+/* YOUR TYPE — FINAL COMPATIBILITY FIXES
+   Targeted fixes only; existing panel markup/theme remain unchanged.
+*/
+(function(){
+  const api=window.api;
+  const sync=window.syncFromServer;
+  if(!api||!sync)return;
+
+  // Keep legacy order buttons compatible with the live server status list.
+  window.setOrderStatus=async function(id,status){
+    try{
+      await api('/api/admin/orders/'+encodeURIComponent(id),{
+        method:'PATCH',body:JSON.stringify({status})
+      });
+      await sync(false);
+      toast('Order status updated on website');
+    }catch(e){toast(e.message||'Could not update order')}
+  };
+
+  // Shipment fields are persisted to the same live order record.
+  window.saveShipment=async function(id){
+    try{
+      await api('/api/admin/orders/'+encodeURIComponent(id),{
+        method:'PATCH',
+        body:JSON.stringify({
+          trackingNumber:document.getElementById('awb')?.value||'',
+          courier:document.getElementById('shipCourier')?.value||'',
+          notes:document.getElementById('track')?.value||''
+        })
+      });
+      await sync(false);
+      closeModal();
+      toast('Shipment saved on website');
+    }catch(e){toast(e.message||'Could not save shipment')}
+  };
+
+  // Address verification is an admin-side annotation; preserve it locally without
+  // changing the live order status or customer data.
+  window.verify=function(id){
+    const o=state.orders.find(x=>String(x.id)===String(id));
+    if(!o){toast('Order not found');return}
+    o.verified=true; save(); renderOrders(); toast('Address verified');
+  };
+
+  // Make dashboard/report revenue use the authoritative order total when available.
+  const originalUpdateDash=window.updateDash;
+  if(typeof originalUpdateDash==='function'){
+    window.updateDash=function(){
+      try{
+        const live=state.orders.filter(o=>o.status!=='Cancelled');
+        const rev=live.reduce((a,o)=>a+Number(o.total??(o.price*o.qty)??0),0);
+        const g=Number(state.settings?.gst||0);
+        let gstTotal=0,profitTotal=0;
+        live.forEach(o=>{
+          const p=prod(o.productId);
+          const orderTotal=Number(o.total??(o.price*o.qty)??0);
+          const base=orderTotal/(1+g/100);
+          gstTotal+=orderTotal-base;
+          profitTotal+=base-(p?(Number(p.cost)||0)*Math.max(1,Number(o.qty)||1):0);
+        });
+        if(window.dashRevenue)dashRevenue.textContent=money(rev);
+        if(window.dashOrders)dashOrders.textContent=state.orders.length;
+        if(window.dashLow)dashLow.textContent=state.inventory.filter(x=>x[2]>0&&x[2]<=x[3]).length;
+        if(window.dashProfit)dashProfit.textContent=money(profitTotal);
+        if(window.aRev)aRev.textContent=money(rev);
+        if(window.aGst)aGst.textContent=money(gstTotal);
+        if(window.aProfit)aProfit.textContent=money(profitTotal);
+        if(window.aAvg)aAvg.textContent=money(live.length?rev/live.length:0);
+      }catch(_){originalUpdateDash()}
+    };
+  }
+
+  // Make product visibility from the edit checkbox persist as well.
+  const originalSaveEdit=window.saveEdit;
+  if(typeof originalSaveEdit==='function'){
+    window.saveEdit=async function(id){
+      // The active flag is handled by the existing server bridge's saveEdit.
+      return originalSaveEdit(id);
+    };
+  }
+
+  // Storefront-facing status names already used by the existing panel.
+  // The backend compatibility list is patched separately in server.js.
+})();
+</script>
+
 </body></html>
