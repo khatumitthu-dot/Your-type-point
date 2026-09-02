@@ -274,7 +274,7 @@ function score(value){
  if(!matched)return 0;
  return 20 + (matched/terms.length)*40 + total;
 }
-function productImage(raw){const v=String(raw||'').trim();if(!v)return '/photos/ornament.jpg';if(/^data:|^https?:|^\//i.test(v))return v;if(/^photos\//i.test(v))return '/'+v;return '/photos/'+v.replace(/^\.\//,'')}
+function productImage(raw){const v=String(raw||'').trim();if(!v)return '/photos/ornament.jpg';if(/^data:|^https?:|^\//i.test(v))return v;if(/^photos\//i.test(v)||/^uploads\//i.test(v))return '/'+v;return '/photos/'+v.replace(/^\.\//,'')}
 function productCardHTML(p,index){const liked=wishlist.includes(p[0]);const z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};return `<article class="card" onclick="openProduct(${index})"><div class="pic"><span class="badge">${p[3]||''}</span><button class="heart ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" aria-pressed="${liked}" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(event,this,${index})">${liked?'♥':'♡'}</button><img src="${productImage(p[2])}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.style.visibility='hidden'"><div class="quick">QUICK VIEW</div></div><div class="info"><h3>${p[0]}</h3><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><div class="sizes">${['S','M','L','XL'].map(sz=>`<button type="button" ${Number(z[sz]||0)<=0?'disabled':''} onclick="event.stopPropagation();selectCardSize(this,'${sz}')">${sz}</button>`).join('')}</div><button type="button" class="add" data-add-to-bag="${index}" ${Number(p[5]??20)<=0?'disabled':''}>${Number(p[5]??20)<=0?'SOLD OUT':'ADD TO BAG +'}</button></div></article>`}
 let ytSectionProducts={};
 function sectionList(key,fallback){
