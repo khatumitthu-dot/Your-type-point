@@ -25,7 +25,7 @@ function hashPassword(s,salt){return crypto.scryptSync(String(s),salt,64).toStri
 function loadAdminAuth(){try{return JSON.parse(fs.readFileSync(ADMIN_AUTH_FILE,'utf8'))}catch{return null}}
 function saveAdminAuth(password){const salt=crypto.randomBytes(16).toString('hex');const auth={algorithm:'scrypt',salt,hash:hashPassword(password,salt),updatedAt:new Date().toISOString()};fs.writeFileSync(ADMIN_AUTH_FILE,JSON.stringify(auth,null,2),{mode:0o600});return auth}
 let adminAuth=loadAdminAuth();
-if(!adminAuth&&ADMIN_PASS){adminAuth=saveAdminAuth(ADMIN_PASS)}
+if(!adminAuth&&ADMIN_PASS){if(!strongPassword(ADMIN_PASS))console.warn('ADMIN_PASS is weak; use 12+ chars with upper/lowercase, number and symbol.');else adminAuth=saveAdminAuth(ADMIN_PASS)}
 function verifyAdminPassword(password){if(!adminAuth)return false;const a=Buffer.from(hashPassword(password,adminAuth.salt),'hex'),b=Buffer.from(adminAuth.hash,'hex');return a.length===b.length&&crypto.timingSafeEqual(a,b)}
 function load(){try{return JSON.parse(fs.readFileSync(DATA,'utf8'))}catch{return {orders:[],newsletter:[],users:[],products:[],sessions:{}}}}
 function save(db){fs.writeFileSync(DATA,JSON.stringify(db,null,2))}
@@ -54,7 +54,7 @@ function newSession(role,userId){const token=crypto.randomBytes(32).toString('he
 function orderId(){return 'YT-'+Date.now().toString(36).toUpperCase()+'-'+crypto.randomBytes(2).toString('hex').toUpperCase()}
 function priceNumber(v){return Number(String(v??'').replace(/[^0-9.-]/g,''))||0}
 function cleanSizes(z){const src=z||{};return Object.fromEntries(SIZES.map(s=>[s,Math.max(0,Math.floor(Number(src[s]||0)))]))}
-function normalizeImageRef(raw){const v=String(raw||'').trim();if(!v)return '';if(/^data:|^https?:|^\//i.test(v))return v;if(/^photos\//i.test(v))return '/'+v;if(/^uploads\//i.test(v))return '/'+v;const name=path.basename(v.replace(/^\.\//,''));if(name&&fs.existsSync(path.join(UPLOADS,name)))return '/uploads/'+encodeURIComponent(name);return '/photos/'+name}
+function normalizeImageRef(raw){const v=String(raw||'').trim();if(!v)return '';if(/^data:|^https?:|^\//i.test(v))return v;if(/^photos\//i.test(v))return '/'+v;if(/^uploads\//i.test(v))return '/'+v;return '/photos/'+v.replace(/^\.\//,'')}
 function safeProduct(p){const sizes=cleanSizes(p.sizes);const rawImages=Array.isArray(p.images)?p.images:[];const image=normalizeImageRef(p.image||rawImages[0]||'');const images=rawImages.map(normalizeImageRef).filter(Boolean);return {id:String(p.id),name:String(p.name||''),price:String(p.price||''),image,images,badge:String(p.badge||''),oldPrice:String(p.oldPrice||''),description:String(p.description||''),category:String(p.category||'T-Shirts'),sku:String(p.sku||''),cost:Number(p.cost||0),sizes,colors:Array.isArray(p.colors)&&p.colors.length?p.colors:['Black','White','Charcoal'],active:p.active!==false,featured:Boolean(p.featured),sections:Array.isArray(p.sections)?p.sections:[],stock:Object.values(sizes).reduce((a,b)=>a+b,0)}}
 function productDeleted(id){return db.deletedProductIds.includes(String(id))||LEGACY_DELETED_PRODUCT_IDS.has(String(id))}
 function removeProductFromSections(id){if(!db.site?.sectionProducts)return;for(const k of Object.keys(db.site.sectionProducts)){if(Array.isArray(db.site.sectionProducts[k]))db.site.sectionProducts[k]=db.site.sectionProducts[k].map(String).filter(x=>x!==String(id))}}

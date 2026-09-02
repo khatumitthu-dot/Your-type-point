@@ -27,7 +27,106 @@ button,.btn,a,summary{touch-action:manipulation}
 .close{float:right}.toast{display:none;position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#fff;color:#000;padding:10px 14px;border-radius:9px;z-index:50}
 .pill{border:1px solid #444;border-radius:99px;padding:4px 8px;font-size:11px}.notice{padding:10px;border:1px solid #444;border-radius:9px;background:#141414}
 @media(min-width:700px){.stats,.grid,.menu{grid-template-columns:repeat(4,1fr)}}
-.adminMap{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.adminMapCard{background:#101010;border:1px solid #292929;border-radius:12px;padding:13px}.adminMapCard h3{margin:0 0 6px;font-size:15px}.adminMapCard p{margin:5px 0;color:#999;line-height:1.45}.switchRow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}.switchRow input{width:auto;margin:0;transform:scale(1.2)}.colorSwatches{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.swatch{display:inline-flex;align-items:center;gap:7px;border:1px solid #333;border-radius:99px;padding:7px 10px;background:#151515}.swatch i{width:18px;height:18px;border-radius:50%;border:1px solid #777;display:inline-block}.help{border-left:3px solid #777;padding:10px 12px;background:#121212;color:#bbb;line-height:1.5;border-radius:8px}.adminHiddenNote{color:#777;font-size:12px}@media(min-width:700px){.adminMap{grid-template-columns:repeat(3,1fr)}}
+.adminMap{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}.adminMapCard{background:#101010;border:1px solid #292929;border-radius:12px;padding:13px}.adminMapCard h3{margin:0 0 6px;font-size:15px}.adminMapCard p{margin:5px 0;color:#999;line-height:1.45}.switchRow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}.switchRow input{width:auto;margin:0;transform:scale(1.2)}.colorSwatches{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.swatch{display:inline-flex;align-items:center;gap:7px;border:1px solid #333;border-radius:99px;padding:7px 10px;background:#151515}.swatch i{width:18px;height:18px;border-radius:50%;border:1px solid #777;display:inline-block}.help{border-left:3px solid #777;padding:10px 12px;background:#121212;color:#bbb;line-height:1.5;border-radius:8px}.adminHiddenNote{color:#777;font-size:12px}.controlNav{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:12px}.controlGroup{background:#111;border:1px solid #292929;border-radius:12px;padding:12px}.controlGroup h3{margin:0 0 9px;font-size:14px}.controlLinks{display:grid;gap:7px}.controlLink{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 11px;background:#151515;border:1px solid #292929;border-radius:9px;color:#fff;cursor:pointer}.controlLink span:last-child{color:#888;font-size:12px}.phaseTag{font-size:10px;border:1px solid #444;border-radius:99px;padding:3px 7px;color:#aaa}@media(min-width:700px){.controlNav{grid-template-columns:repeat(3,1fr)}}@media(min-width:700px){.adminMap{grid-template-columns:repeat(3,1fr)}}
+
+/* YOUR TYPE PREMIUM ADMIN UI — visual layer only; existing handlers stay intact */
+:root{--yt-bg:#070707;--yt-panel:#101010;--yt-panel2:#151515;--yt-line:#292929;--yt-text:#f5f5f5;--yt-muted:#8d8d8d;--yt-soft:#bdbdbd;--yt-accent:#fff}
+body{background:radial-gradient(circle at 85% -10%,#202020 0,#0a0a0a 34%,#070707 70%);font-family:Arial,Helvetica,sans-serif;letter-spacing:.01em}
+header{height:64px;padding:10px 16px;background:rgba(8,8,8,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 8px 28px #0008}
+.logo{font-size:14px;letter-spacing:4px}
+.wrap{max-width:1180px;padding:0 16px}
+h1,h2,h3{letter-spacing:-.025em}h2{font-size:24px;margin:18px 0 10px}
+.btn{position:relative;overflow:hidden;border-color:#303030;background:linear-gradient(180deg,#181818,#111);box-shadow:0 2px 0 #000,0 8px 20px #0004;transition:transform .16s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.btn:hover{background:linear-gradient(180deg,#232323,#151515);border-color:#4a4a4a;box-shadow:0 5px 18px #0008;transform:translateY(-1px)}
+.btn:active,.btn.yt-pressed{transform:scale(.96);box-shadow:0 1px 5px #000}
+.btn.primary{background:linear-gradient(180deg,#fff,#dedede);color:#050505;border-color:#fff;font-weight:800}
+.btn.primary:hover{background:#fff}
+.tabs{gap:7px;padding:9px 0 15px}
+#adminTabs{display:none!important}
+#adminTabs .tab{display:none}
+.yt-admin-shell{margin:8px 0 18px;padding:14px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:linear-gradient(180deg,#111,#0c0c0c);box-shadow:0 14px 40px #0008}
+.yt-admin-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}.yt-kicker{font-size:10px;letter-spacing:2.5px;color:#777}.yt-title{font-size:25px;font-weight:900;margin-top:3px}.yt-sub{font-size:12px;color:#888;margin-top:4px}.yt-status{font-size:11px;color:#aaa;border:1px solid #303030;background:#141414;border-radius:999px;padding:7px 10px;white-space:nowrap}
+.yt-nav-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.yt-nav-card{border:1px solid #292929;border-radius:13px;background:#111;overflow:hidden;transition:.2s ease}.yt-nav-card.open{border-color:#555;background:#151515;box-shadow:0 8px 24px #0008}.yt-nav-head{width:100%;border:0;background:transparent;color:#fff;text-align:left;padding:12px;display:flex;align-items:center;justify-content:space-between;font-weight:800;cursor:pointer}.yt-nav-head small{display:block;color:#777;font-weight:400;margin-top:3px}.yt-chevron{transition:transform .2s}.yt-nav-card.open .yt-chevron{transform:rotate(180deg)}.yt-nav-links{display:none;padding:0 8px 8px;grid-template-columns:1fr 1fr;gap:6px}.yt-nav-card.open .yt-nav-links{display:grid}.yt-nav-link{border:1px solid #292929;background:#0d0d0d;color:#ddd;border-radius:9px;padding:10px 9px;text-align:left;font-size:12px;cursor:pointer;min-height:42px;transition:.16s}.yt-nav-link:hover{background:#202020;border-color:#444}.yt-nav-link.active{background:#fff;color:#050505;border-color:#fff;font-weight:800}
+.yt-home-actions{display:flex;gap:8px;overflow:auto;padding-bottom:2px;margin-top:10px}.yt-home-actions .btn{white-space:nowrap}
+.section.on{animation:ytPageIn .28s ease both}@keyframes ytPageIn{from{opacity:.35;transform:translateY(7px)}to{opacity:1;transform:none}}
+.stat,.card,.box,.order,.controlGroup,.adminMapCard{background:linear-gradient(180deg,#121212,#0e0e0e);border-color:#292929;box-shadow:0 8px 25px #0005;transition:transform .18s ease,border-color .2s ease,box-shadow .2s ease}.stat:hover,.card:hover,.box:hover{border-color:#3d3d3d;box-shadow:0 12px 30px #0008}
+.stat b{font-size:25px}.stat{min-height:88px}
+.search,input,select,textarea{background:#101010;border-color:#2d2d2d;transition:border-color .2s,box-shadow .2s,background .2s}.search:focus,input:focus,select:focus,textarea:focus{outline:none;border-color:#666;box-shadow:0 0 0 3px #fff1;background:#151515}
+.toast{display:none;bottom:22px;padding:0;overflow:hidden;background:#121212;color:#fff;border:1px solid #444;border-radius:13px;box-shadow:0 14px 40px #000c;min-width:230px;text-align:center;font-weight:700;animation:ytToastIn .25s ease}.toast::before{content:'✓';display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;border-radius:50%;background:#fff;color:#000}@keyframes ytToastIn{from{opacity:0;transform:translate(-50%,12px) scale(.96)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+.yt-section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}.yt-section-title span{color:#777;font-size:11px}.yt-badge{border:1px solid #333;border-radius:999px;padding:5px 8px;color:#aaa;font-size:10px;letter-spacing:1px}
+@media(max-width:699px){header{height:58px;padding:8px 12px}.wrap{padding:0 11px}.yt-admin-shell{padding:11px;border-radius:15px}.yt-admin-top{align-items:flex-start}.yt-title{font-size:21px}.yt-nav-grid{grid-template-columns:1fr 1fr}.yt-nav-links{grid-template-columns:1fr}.yt-nav-head{min-height:64px;padding:10px}.yt-status{display:none}.stats{gap:7px}.stat{padding:11px;min-height:76px}.stat b{font-size:21px}.box,.order,.card{border-radius:12px}.btn{box-shadow:0 3px 14px #0005}.toast{bottom:18px;min-width:220px}.hero{padding:20px 4px}.hero h1,h1{font-size:31px}}
+@media(min-width:700px){.yt-admin-shell{padding:16px}.yt-nav-links{grid-template-columns:1fr 1fr 1fr}}
+
+
+/* === YOUR TYPE REAL PREMIUM APP SHELL v2 === */
+:root{--yt-purple:#7c2cff;--yt-purple2:#a855f7;--yt-bg:#05070b;--yt-panel:#0b1018;--yt-panel2:#101722;--yt-line:#1c2735;--yt-text:#f8fafc;--yt-muted:#8792a2;--yt-green:#22c55e;--yt-blue:#38bdf8;--yt-orange:#f59e0b}
+html,body{background:#05070b!important;color:var(--yt-text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+body{min-height:100vh;background:radial-gradient(900px 500px at 75% -5%,rgba(124,44,255,.15),transparent 58%),radial-gradient(700px 500px at 10% 100%,rgba(56,189,248,.05),transparent 65%),#05070b!important}
+header{height:68px!important;padding:10px 18px!important;background:rgba(5,7,11,.82)!important;border-bottom:1px solid rgba(255,255,255,.07)!important;backdrop-filter:blur(20px);box-shadow:0 10px 35px rgba(0,0,0,.35)!important;position:sticky!important}
+.logo{font-size:15px!important;letter-spacing:4px!important;color:#fff}
+.wrap{max-width:1280px!important;padding:0 20px!important}
+.btn{border:1px solid #253043!important;background:linear-gradient(180deg,#121925,#0c121b)!important;color:#eef2f7!important;border-radius:11px!important;box-shadow:0 8px 25px rgba(0,0,0,.2)!important;transition:transform .16s,border-color .2s,background .2s,box-shadow .2s!important}
+.btn:hover{border-color:#4a3b78!important;background:linear-gradient(180deg,#19152a,#101522)!important;transform:translateY(-1px)!important}
+.btn.primary{background:linear-gradient(135deg,#6d20ff,#9b43ff)!important;border-color:#9d55ff!important;color:#fff!important;box-shadow:0 8px 28px rgba(124,44,255,.32)!important}
+input,select,textarea,.search{background:#0a1018!important;border-color:#202c3c!important;color:#eef2f7!important;border-radius:10px!important}
+input:focus,select:focus,textarea:focus,.search:focus{border-color:#7c2cff!important;box-shadow:0 0 0 3px rgba(124,44,255,.13)!important}
+.stat,.box,.card,.order,.controlGroup,.adminMapCard{background:linear-gradient(180deg,rgba(16,23,34,.96),rgba(9,14,21,.96))!important;border:1px solid #1c2735!important;border-radius:15px!important;box-shadow:0 14px 40px rgba(0,0,0,.28)!important}
+.stat:hover,.box:hover,.card:hover{border-color:#303d50!important}
+.section{max-width:100%!important}.section.on{animation:ytEnter .25s ease both}@keyframes ytEnter{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* premium navigation */
+#ytPremiumAdminNav{margin:14px 0 22px!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
+#ytPremiumAdminNav .yt-admin-top{padding:18px 2px 12px!important;margin:0!important;align-items:center!important}
+#ytPremiumAdminNav .yt-kicker{color:#8b5cf6!important;letter-spacing:2.2px!important;font-weight:800}
+#ytPremiumAdminNav .yt-title{font-size:30px!important;letter-spacing:-.04em!important}
+#ytPremiumAdminNav .yt-sub{color:#7f8a9b!important}
+#ytPremiumAdminNav .yt-status{border-color:#273244!important;background:#0d141e!important;color:#aab4c2!important}
+.yt-home-actions{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:9px!important;padding:0!important;margin:6px 0 12px!important}
+.yt-home-actions .btn{min-height:48px!important}
+.yt-nav-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:8px!important}
+.yt-nav-card{background:#0b111a!important;border:1px solid #1d2939!important;border-radius:13px!important}
+.yt-nav-card.open{border-color:#5b3a9a!important;background:linear-gradient(180deg,#111324,#0b111a)!important;box-shadow:0 12px 30px rgba(0,0,0,.3)!important}
+.yt-nav-head{padding:12px 11px!important}.yt-nav-head small{color:#738095!important}.yt-nav-link{background:#0a1018!important;border-color:#1e2938!important}.yt-nav-link.active{background:linear-gradient(135deg,#6d20ff,#9b43ff)!important;color:#fff!important;border-color:#9d55ff!important}
+/* Dashboard target layout */
+#dashboard>h2{font-size:0;margin:0 0 18px!important}
+#dashboard>h2:after{content:'Welcome back, Admin! 👋';font-size:28px;letter-spacing:-.04em;font-weight:850;display:block}
+#dashboard:before{content:'Here’s what’s happening with your store today.';display:block;color:#7e8a9a;font-size:13px;margin:-12px 0 18px}
+#dashboard>.stats{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:11px!important}
+#dashboard>.stats .stat{min-height:108px!important;position:relative;overflow:hidden}
+#dashboard>.stats .stat:after{content:'';position:absolute;right:-18px;bottom:-25px;width:95px;height:70px;border-radius:50%;background:radial-gradient(circle,rgba(124,44,255,.22),transparent 68%)}
+#dashboard>.stats .stat b{font-size:25px!important;margin:8px 0 5px!important}
+#dashboard>.stats .stat:nth-child(1) b{color:#c084fc}.dashboardQuick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.yt-quick-card{padding:15px;border:1px solid #1c2735;border-radius:14px;background:#0b111a;cursor:pointer;transition:.18s}.yt-quick-card:hover{transform:translateY(-2px);border-color:#4a3b78}.yt-quick-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(124,44,255,.16);color:#c084fc;font-size:17px;margin-bottom:10px}.yt-quick-card b{font-size:13px}.yt-quick-card span{display:block;color:#758196;font-size:11px;margin-top:3px}
+.yt-dashboard-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:12px;margin-top:12px}.yt-chart{min-height:260px}.yt-chart-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.yt-chart-title{font-size:16px;font-weight:800}.yt-chart-sub{font-size:11px;color:#738095}.yt-bars{height:170px;display:flex;align-items:flex-end;gap:7px;padding:18px 5px 5px;border-top:1px solid #182332}.yt-bar{flex:1;min-width:6px;height:var(--h);background:linear-gradient(180deg,#a855f7,#5b21b6);border-radius:7px 7px 2px 2px;box-shadow:0 0 18px rgba(124,44,255,.18)}.yt-chart-labels{display:flex;justify-content:space-between;color:#667386;font-size:10px;margin-top:5px}.yt-summary{display:grid;gap:8px}.yt-summary-row{display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid #182332;border-radius:11px;background:#0a1018}.yt-summary-row span{color:#aeb8c6;font-size:12px}.yt-summary-row b{font-size:12px}.yt-dot{width:9px;height:9px;border-radius:50%;background:#7c2cff;display:inline-block;margin-right:8px}.yt-dot.green{background:#22c55e}.yt-dot.blue{background:#38bdf8}.yt-dot.orange{background:#f59e0b}
+#dashboard>.box{margin-top:12px!important}
+#dashboard>.menu{display:none}
+/* Control Center should feel like a settings app */
+#controlCenter>h2{font-size:28px;letter-spacing:-.04em}#controlCenter>.stats{gap:10px}.controlGroup,.adminMapCard{box-shadow:none!important}
+/* mobile app shell */
+.yt-mobile-bottom{display:none}
+@media(max-width:699px){
+ body{padding-bottom:76px!important}
+ header{height:58px!important;padding:8px 12px!important}
+ .wrap{padding:0 12px!important}
+ #ytPremiumAdminNav{margin:6px 0 14px!important}
+ #ytPremiumAdminNav .yt-admin-top{padding:8px 1px 12px!important}
+ #ytPremiumAdminNav .yt-title{font-size:20px!important}.yt-sub{font-size:11px!important}
+ #ytPremiumAdminNav .yt-status{font-size:10px;padding:6px 8px}
+ .yt-home-actions{grid-template-columns:repeat(2,1fr)!important;gap:7px!important}
+ .yt-home-actions .btn{min-height:43px!important;padding:8px!important}
+ .yt-nav-grid{grid-template-columns:repeat(2,1fr)!important;gap:7px!important}
+ .yt-nav-card{border-radius:12px!important}.yt-nav-links{grid-template-columns:1fr!important}
+ #dashboard>h2:after{font-size:23px}.section.on{padding-bottom:12px}
+ #dashboard>.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ #dashboard>.stats .stat{min-height:92px!important;padding:12px!important}
+ #dashboard>.stats .stat b{font-size:21px!important}
+ .dashboardQuick{grid-template-columns:repeat(4,1fr);gap:6px;overflow:auto;padding-bottom:2px}.yt-quick-card{min-width:78px;padding:10px}.yt-quick-icon{width:30px;height:30px;margin-bottom:7px}.yt-quick-card b{font-size:11px}.yt-quick-card span{font-size:9px}
+ .yt-dashboard-grid{grid-template-columns:1fr!important}
+ .yt-chart{min-height:225px}.yt-bars{height:135px;gap:4px}.yt-chart-labels{font-size:9px}
+ .yt-mobile-bottom{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);left:10px;right:10px;bottom:10px;height:62px;background:rgba(9,14,21,.94);border:1px solid #273244;border-radius:18px;z-index:80;backdrop-filter:blur(18px);box-shadow:0 18px 50px rgba(0,0,0,.55);padding:5px}
+ .yt-mobile-bottom button{border:0;background:transparent;color:#7f8b9b;border-radius:13px;font-size:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-width:0}.yt-mobile-bottom button b{font-size:18px;line-height:18px;font-weight:500}.yt-mobile-bottom button.active{background:rgba(124,44,255,.2);color:#d8b4fe;box-shadow:inset 0 0 0 1px rgba(168,85,247,.2)}
+ #adminTabs{display:none!important}
+}
+@media(min-width:700px){.yt-mobile-bottom{display:none!important}}
 </style></head>
 <body>
 <header><div class="logo">YOUR TYPE</div><div><button class="btn" onclick="location.href='/'">Store</button> <button class="btn primary" onclick="adminLogin()">Admin</button></div></header>
@@ -38,8 +137,48 @@ button,.btn,a,summary{touch-action:manipulation}
 <div class="tabs"><button class="btn" onclick="filterStore('all')">All</button><button class="btn" onclick="filterStore('T-Shirt')">T-Shirts</button><button class="btn" onclick="filterStore('Shirt')">Shirts</button><button class="btn" onclick="go('account')">My Account</button><button class="btn" onclick="go('customerOrders')">My Orders</button></div>
 <div id="storeGrid" class="grid"></div></section>
 
-<div id="adminTabs" class="tabs" style="display:none">
-<button class="btn tab active" onclick="go('dashboard',this)">Dashboard</button><button class="btn tab" onclick="go('orders',this)">Orders</button>
+
+<div id="ytPremiumAdminNav" class="yt-admin-shell" style="display:none">
+  <div class="yt-admin-top">
+    <div><div class="yt-kicker">YOUR TYPE / ADMIN SYSTEM</div><div class="yt-title">Control your store.</div><div class="yt-sub">Everything important, organised in simple sections.</div></div>
+    <div class="yt-status" id="ytNavStatus">● Admin mode</div>
+  </div>
+  <div class="yt-home-actions">
+    <button class="btn primary" onclick="ytNavGo('dashboard',this)">⌂ Dashboard</button>
+    <button class="btn" onclick="ytNavGo('controlCenter',this)">✦ Website Control</button>
+    <button class="btn" onclick="ytNavGo('products',this)">＋ Product</button>
+    <button class="btn" onclick="ytNavGo('orders',this)">Orders</button>
+  </div>
+  <div class="yt-nav-grid" style="margin-top:10px">
+    <div class="yt-nav-card open"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Overview<small>Dashboard & customers</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link active" data-yt-target="dashboard" onclick="ytNavGo('dashboard',this)">Dashboard</button><button class="yt-nav-link" data-yt-target="orders" onclick="ytNavGo('orders',this)">Orders</button><button class="yt-nav-link" data-yt-target="customers" onclick="ytNavGo('customers',this)">Customers</button><button class="yt-nav-link" data-yt-target="wishlist" onclick="ytNavGo('wishlist',this)">Wishlist</button>
+    </div></div>
+    <div class="yt-nav-card"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Products<small>Catalog & stock</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link" data-yt-target="products" onclick="ytNavGo('products',this)">Products</button><button class="yt-nav-link" data-yt-target="inventory" onclick="ytNavGo('inventory',this)">Inventory</button><button class="yt-nav-link" data-yt-target="variants" onclick="ytNavGo('variants',this)">Variants</button><button class="yt-nav-link" data-yt-target="categories" onclick="ytNavGo('categories',this)">Categories</button><button class="yt-nav-link" data-yt-target="reviews" onclick="ytNavGo('reviews',this)">Reviews</button>
+    </div></div>
+    <div class="yt-nav-card"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Website<small>Homepage & sections</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link" data-yt-target="controlCenter" onclick="ytNavGo('controlCenter',this)">Website Control</button><button class="yt-nav-link" data-yt-target="website" onclick="ytNavGo('website',this)">Website</button><button class="yt-nav-link" data-yt-target="sections" onclick="ytNavGo('sections',this)">Sections</button><button class="yt-nav-link" data-yt-target="colors" onclick="ytNavGo('colors',this)">Colors</button>
+    </div></div>
+    <div class="yt-nav-card"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Sales<small>Offers & returns</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link" data-yt-target="coupons" onclick="ytNavGo('coupons',this)">Coupons</button><button class="yt-nav-link" data-yt-target="returns" onclick="ytNavGo('returns',this)">Returns</button><button class="yt-nav-link" data-yt-target="analytics" onclick="ytNavGo('analytics',this)">Analytics</button>
+    </div></div>
+    <div class="yt-nav-card"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Reports<small>Exports & insights</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link" data-yt-target="reports" onclick="ytNavGo('reports',this)">Reports</button><button class="yt-nav-link" data-yt-target="downloads" onclick="ytNavGo('downloads',this)">Downloads</button><button class="yt-nav-link" data-yt-target="diagnostics" onclick="ytNavGo('diagnostics',this)">Diagnostics</button>
+    </div></div>
+    <div class="yt-nav-card"><button class="yt-nav-head" onclick="ytToggleGroup(this)"><span>Settings<small>Store & admin</small></span><span class="yt-chevron">⌄</span></button><div class="yt-nav-links">
+      <button class="yt-nav-link" data-yt-target="settings" onclick="ytNavGo('settings',this)">Settings</button>
+    </div></div>
+  </div>
+</div>
+<div class="yt-mobile-bottom" id="ytMobileBottom">
+  <button class="active" data-target="dashboard" onclick="ytNavGo('dashboard',this)"><b>⌂</b><span>Dashboard</span></button>
+  <button data-target="orders" onclick="ytNavGo('orders',this)"><b>▣</b><span>Orders</span></button>
+  <button data-target="products" onclick="ytNavGo('products',this)"><b>▤</b><span>Products</span></button>
+  <button data-target="controlCenter" onclick="ytNavGo('controlCenter',this)"><b>⋮⋮</b><span>More</span></button>
+</div>
+
+<div id="adminTabs" class="tabs" style="display:none"><button class="btn tab active" onclick="go('controlCenter',this)">Control Center</button>
+<button class="btn tab" onclick="go('dashboard',this)">Dashboard</button><button class="btn tab" onclick="go('orders',this)">Orders</button>
 <button class="btn tab" onclick="go('inventory',this)">Inventory</button><button class="btn tab" onclick="go('variants',this)">Variants</button><button class="btn tab" onclick="go('products',this)">Products</button>
 <button class="btn tab" onclick="go('customers',this)">Customers</button><button class="btn tab" onclick="go('diagnostics',this)">Diagnostics</button><button class="btn tab" onclick="go('reviews',this)">Reviews</button>
 <button class="btn tab" onclick="go('coupons',this)">Coupons</button><button class="btn tab" onclick="go('returns',this)">Returns</button><button class="btn tab" onclick="go('categories',this)">Categories</button><button class="btn tab" onclick="go('wishlist',this)">Wishlist</button><button class="btn tab" onclick="go('website',this)">Website</button><button class="btn tab" onclick="go('sections',this)">Sections</button><button class="btn tab" onclick="go('colors',this)">Colors</button><button class="btn tab" onclick="go('reports',this)">Reports</button>
@@ -48,16 +187,91 @@ button,.btn,a,summary{touch-action:manipulation}
 </div>
 
 <section id="dashboard" class="section"><h2>Admin Dashboard</h2><div class="stats">
-<div class="stat">Revenue<b id="dashRevenue">₹0</b><span class="muted">All active orders</span></div><div class="stat">Orders<b id="dashOrders">0</b><span class="muted">All orders</span></div>
-<div class="stat">Profit (Est.)<b id="dashProfit">₹0</b><span class="muted">Revenue − GST − Cost</span></div><div class="stat">Low Stock<b id="dashLow">0</b><span class="muted">Attention</span></div>
-<div class="stat">Today Sales<b id="dashToday">₹0</b></div><div class="stat">Weekly Sales<b id="dashWeek">₹0</b></div><div class="stat">Monthly Sales<b id="dashMonth">₹0</b></div><div class="stat">Wishlist<b id="dashWishlist">0</b></div></div>
-<div class="box" style="margin-top:12px"><b>Order Status</b><div id="dashStatuses" class="stats" style="margin-top:8px"></div></div>
+<div class="stat">Total Sales<b id="dashRevenue">₹0</b><span class="muted">All active orders</span></div><div class="stat">Total Orders<b id="dashOrders">0</b><span class="muted">All orders</span></div>
+<div class="stat">Estimated Profit<b id="dashProfit">₹0</b><span class="muted">Revenue − GST − Cost</span></div><div class="stat">Low Stock<b id="dashLow">0</b><span class="muted">Needs attention</span></div>
+</div>
+<div class="dashboardQuick">
+<div class="yt-quick-card" onclick="go('products')"><div class="yt-quick-icon">▤</div><b>Products</b><span>Manage catalog</span></div>
+<div class="yt-quick-card" onclick="go('orders')"><div class="yt-quick-icon">▣</div><b>Orders</b><span>Track sales</span></div>
+<div class="yt-quick-card" onclick="go('customers')"><div class="yt-quick-icon">♙</div><b>Customers</b><span>View accounts</span></div>
+<div class="yt-quick-card" onclick="go('settings')"><div class="yt-quick-icon">⚙</div><b>Settings</b><span>Store control</span></div>
+</div>
+<div class="yt-dashboard-grid">
+<div class="box yt-chart"><div class="yt-chart-head"><div><div class="yt-chart-title">Sales Overview</div><div class="yt-chart-sub">Performance snapshot</div></div><span class="yt-badge">THIS MONTH</span></div><div class="yt-bars"><i class="yt-bar" style="--h:34%"></i><i class="yt-bar" style="--h:48%"></i><i class="yt-bar" style="--h:42%"></i><i class="yt-bar" style="--h:64%"></i><i class="yt-bar" style="--h:52%"></i><i class="yt-bar" style="--h:76%"></i><i class="yt-bar" style="--h:61%"></i><i class="yt-bar" style="--h:88%"></i><i class="yt-bar" style="--h:72%"></i><i class="yt-bar" style="--h:96%"></i><i class="yt-bar" style="--h:82%"></i><i class="yt-bar" style="--h:100%"></i></div><div class="yt-chart-labels"><span>1 Aug</span><span>8 Aug</span><span>15 Aug</span><span>22 Aug</span><span>29 Aug</span></div></div>
+<div class="box"><div class="yt-chart-head"><div><div class="yt-chart-title">Sales Summary</div><div class="yt-chart-sub">Quick totals</div></div></div><div class="yt-summary"><div class="yt-summary-row"><span><i class="yt-dot green"></i>Today Sales</span><b id="dashToday">₹0</b></div><div class="yt-summary-row"><span><i class="yt-dot blue"></i>This Week</span><b id="dashWeek">₹0</b></div><div class="yt-summary-row"><span><i class="yt-dot"></i>This Month</span><b id="dashMonth">₹0</b></div><div class="yt-summary-row"><span><i class="yt-dot orange"></i>Wishlist</span><b id="dashWishlist">0</b></div></div></div>
+</div>
+<div class="box" style="margin-top:12px"><h3>Order Status</h3><div id="dashStatuses" class="stats" style="margin-top:8px"></div></div>
 <div class="box" style="margin-top:12px"><h3>Recent Orders</h3><div id="dashRecent"></div></div>
-<div class="box" style="margin-top:12px"><h3>Top-selling Products</h3><div id="dashTop"></div></div>
-<div class="menu" style="margin-top:12px"><div class="box"><b>📦 Orders</b><p class="muted">Manage status, address and invoice.</p><button class="btn" onclick="go('orders')">Open</button></div>
-<div class="box"><b>📦 Inventory</b><p class="muted">Size/SKU stock management.</p><button class="btn" onclick="go('inventory')">Open</button></div>
-<div class="box"><b>👕 Products</b><p class="muted">Variants, images and pricing.</p><button class="btn" onclick="go('products')">Open</button></div>
-<div class="box"><b>📊 Reports</b><p class="muted">Export sales and inventory.</p><button class="btn" onclick="go('downloads')">Open</button></div></div></section>
+<div class="box" style="margin-top:12px"><h3>Top-selling Products</h3><div id="dashTop"></div></div></section>
+
+<section id="controlCenter" class="section">
+<h2>Full Website Control</h2>
+<p class="muted">Ye control center current website/server data par kaam karta hai. LocalStorage sirf cache hai; Save buttons server database ko update karte hain.</p>
+<div class="stats">
+  <div class="stat">Products<b id="fcProducts">0</b></div>
+  <div class="stat">Orders<b id="fcOrders">0</b></div>
+  <div class="stat">Customers<b id="fcCustomers">0</b></div>
+  <div class="stat">Low Stock<b id="fcLow">0</b></div>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Store Settings</h3>
+<div class="menu">
+<div><label>Store Name</label><input id="fcStoreName" placeholder="YOUR TYPE"></div>
+<div><label>Phone</label><input id="fcPhone" placeholder="+91..."></div>
+<div><label>WhatsApp</label><input id="fcWhatsapp" placeholder="+91..."></div>
+<div><label>Email</label><input id="fcEmail" type="email" placeholder="store@example.com"></div>
+<div><label>Address</label><textarea id="fcAddress" placeholder="Full store address"></textarea></div>
+<div><label>Currency</label><input id="fcCurrency" value="INR"></div>
+<div><label>GST %</label><input id="fcGST" type="number" min="0" max="100"></div>
+<div><label>Shipping Charge</label><input id="fcShipping" type="number" min="0"></div>
+<div><label>Free Shipping Above</label><input id="fcFreeShipping" type="number" min="0"></div>
+</div>
+<button class="btn primary" onclick="saveFullStoreSettings()">Save Store Settings</button>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Homepage Control</h3>
+<label>Hero / Main heading</label><input id="fcHero">
+<label>Announcement</label><input id="fcAnnouncement">
+<label>Main Banner Image/Video URL</label><input id="fcBanner">
+<label>Banner Button Text</label><input id="fcBannerButton">
+<label>Banner Button Link</label><input id="fcBannerLink">
+<div class="tabs" style="margin-top:10px">
+<button class="btn" onclick="toggleAllHomepageSections(true)">Show All Sections</button>
+<button class="btn" onclick="toggleAllHomepageSections(false)">Hide All Sections</button>
+</div>
+<div id="fcSectionToggles" class="adminMap"></div>
+<button class="btn primary" onclick="saveFullHomepage()">Save Homepage Control</button>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Section Product Assignment</h3>
+<p class="muted">Section select karo, phir products tick karo. Save karne ke baad storefront isi server data ko use karega.</p>
+<select id="fcSectionSelect" onchange="renderFullSectionProducts()"></select>
+<div id="fcSectionProducts" class="sectionProductChoices" style="margin-top:10px"></div>
+<button class="btn primary" onclick="saveFullSectionProducts()">Save Section Products</button>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Media Manager</h3>
+<input id="fcMediaFiles" type="file" multiple accept="image/png,image/jpeg,image/webp,video/mp4,video/webm">
+<button class="btn primary" onclick="uploadFullMedia()">Upload Media</button>
+<div id="fcMediaList" class="grid" style="margin-top:12px"></div>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Backup & Restore</h3>
+<p class="muted">Backup server data ka hota hai. Restore se deleted-product protection bypass nahi hogi.</p>
+<button class="btn" onclick="downloadServerBackup()">Download Server Backup</button>
+<button class="btn" onclick="openServerRestore()">Restore Server Backup</button>
+</div>
+
+<div class="box" style="margin-top:12px">
+<h3>Admin Activity Log</h3>
+<div id="fcAudit" class="notice">No activity yet.</div>
+</div>
+</section>
 
 <section id="orders" class="section"><h2>Orders</h2><div class="tabs"><button class="btn" onclick="downloadOrders()">Export Orders</button></div>
 <input class="search" placeholder="Search order/customer/product" oninput="renderOrders(this.value)"><div id="ordersList"></div></section>
@@ -139,7 +353,7 @@ state.products.forEach(p=>{if(p.hidden===undefined)p.hidden=false;if(p.featured=
 save();
 function prod(id){return state.products.find(p=>p.id===id)}
 function money(n){return '₹'+Number(n||0).toLocaleString('en-IN')}
-function go(id,btn){let e=document.getElementById(id);if(!e){toast('Section not found');return}if(!['store','account','customerOrders'].includes(id))localStorage.setItem('ytAdminSection',id);document.querySelectorAll('.section').forEach(x=>x.classList.remove('on'));e.classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('adminTabs').style.display=['store','account','customerOrders'].includes(id)?'none':'flex';if(id==='store')filterStore('all');if(id==='orders')renderOrders();if(id==='inventory')renderInventory();if(id==='products')renderProducts();if(id==='variants'){syncVariantTab()}if(id==='sections')renderSectionManager();if(id==='colors'){syncColorManager()}if(id==='coupons')renderCoupons();if(id==='customerOrders')renderCustomerOrders();updateDash();window.scrollTo({top:0,behavior:'smooth'})}
+function go(id,btn){let e=document.getElementById(id);if(!e){toast('Section not found');return}if(!['store','account','customerOrders'].includes(id))localStorage.setItem('ytAdminSection',id);document.querySelectorAll('.section').forEach(x=>x.classList.remove('on'));e.classList.add('on');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('adminTabs').style.display=['store','account','customerOrders'].includes(id)?'none':'flex';if(id==='store')filterStore('all');if(id==='controlCenter')loadFullControl();if(id==='orders')renderOrders();if(id==='inventory')renderInventory();if(id==='products')renderProducts();if(id==='variants'){syncVariantTab()}if(id==='sections')renderSectionManager();if(id==='colors'){syncColorManager()}if(id==='coupons')renderCoupons();if(id==='customerOrders')renderCustomerOrders();updateDash();window.scrollTo({top:0,behavior:'smooth'})}
 function adminLogin(){
   openModal(`<h2>Admin Login</h2><form id="adminLoginForm" autocomplete="off" novalidate onsubmit="event.preventDefault();doAdminLogin()">
     <label for="loginUser" class="muted">Username</label>
@@ -325,18 +539,137 @@ dashRevenue.textContent=money(rev);dashOrders.textContent=state.orders.length;da
 aRev.textContent=money(rev);aGst.textContent=money(gstTotal);aProfit.textContent=money(profitTotal);aAvg.textContent=money(live.length?rev/live.length:0)}
 function toast(t){let e=document.getElementById('toast');e.textContent=t;e.style.display='block';clearTimeout(window._t);window._t=setTimeout(()=>e.style.display='none',1800)}
 function openModal(x){modalBody.innerHTML=x;modal.classList.add('on')}function closeModal(){modal.classList.remove('on')}
-function addCategory(){let n=(catName.value||'').trim();if(!n){toast('Enter category name');return}if(!state.categories.includes(n))state.categories.push(n);save();renderCategories();toast('Category added')}
-function renderCategories(){categoryList.innerHTML=state.categories.map((c,i)=>`<div class=box><b>${c}</b><p class=muted>${state.products.filter(p=>p.category===c).length} products</p><button class=btn onclick="renameCategory(${i})">Rename</button><button class=btn danger onclick="deleteCategory(${i})">Delete</button></div>`).join('')}
-function renameCategory(i){let n=prompt('New category name',state.categories[i]);if(!n)return;n=n.trim();if(!n||state.categories.includes(n))return toast('Invalid/duplicate category');let old=state.categories[i];state.categories[i]=n;state.products.forEach(p=>{if(p.category===old)p.category=n});save();renderCategories();renderProducts();toast('Category renamed')}
-function deleteCategory(i){let c=state.categories[i];if(state.products.some(p=>p.category===c)){toast('Move/delete products in this category first');return}state.categories.splice(i,1);save();renderCategories();toast('Category deleted')}
+async function saveCategoriesToServer(){await api2('/api/admin/categories',{method:'PATCH',body:JSON.stringify({categories:state.categories})})}
+async function addCategory(){let n=(catName.value||'').trim();if(!n){toast('Enter category name');return}if(!state.categories.includes(n))state.categories.push(n);try{await saveCategoriesToServer();catName.value='';renderCategories();toast('Category saved to server')}catch(e){toast(e.message)}}
+function renderCategories(){categoryList.innerHTML=state.categories.map((c,i)=>`<div class=box><b>${fcEscape(c)}</b><p class=muted>${state.products.filter(p=>p.category===c).length} products</p><button class=btn onclick="renameCategory(${i})">Rename</button><button class=btn danger onclick="deleteCategory(${i})">Delete</button></div>`).join('')}
+async function renameCategory(i){let n=prompt('New category name',state.categories[i]);if(!n)return;n=n.trim();if(!n||state.categories.includes(n))return toast('Invalid/duplicate category');let old=state.categories[i];try{for(const p of state.products.filter(p=>p.category===old))await api2('/api/admin/products/'+encodeURIComponent(p.id),{method:'PATCH',body:JSON.stringify({category:n})});state.categories[i]=n;await saveCategoriesToServer();await sync();toast('Category renamed on website')}catch(e){toast(e.message)}}
+async function deleteCategory(i){let c=state.categories[i];if(state.products.some(p=>p.category===c)){toast('Move products to another category first');return}state.categories.splice(i,1);try{await saveCategoriesToServer();renderCategories();toast('Category deleted from server')}catch(e){toast(e.message)}}
 function renderWishlist(){let counts={};state.wishlist.forEach(id=>counts[id]=(counts[id]||0)+1);let rows=Object.entries(counts).map(([id,n])=>{let p=prod(id);return p?`<div class=row><span>${p.name} <span class=muted>(${p.sku})</span></span><b>${n}</b></div>`:''}).join('');let total=state.wishlist.length;wishTotal.textContent=total;wishProducts.textContent=Object.keys(counts).length;wishList.innerHTML=rows||'<div class=notice>No wishlist data yet.</div>';dashWishlist.textContent=total}
-function saveWebsiteControl(){state.website={announcement:siteAnnouncement.value,hero:siteHero.value,featured:(siteFeatured.value||'').split(',').map(x=>x.trim()).filter(Boolean),social:siteSocial.value,phone:sitePhone.value,email:siteEmail.value};state.products.forEach(p=>p.featured=state.website.featured.includes(p.id));save();toast('Website settings saved')}
+async function saveWebsiteControl(){const featured=(siteFeatured.value||'').split(',').map(x=>x.trim()).filter(Boolean);try{await api2('/api/admin/site-config',{method:'PATCH',body:JSON.stringify({announcement:siteAnnouncement.value,hero:siteHero.value})});for(const p of state.products){const want=featured.includes(String(p.id));if(Boolean(p.featured)!==want)await api2('/api/admin/products/'+encodeURIComponent(p.id),{method:'PATCH',body:JSON.stringify({featured:want})})}await sync();toast('Website settings saved to server')}catch(e){toast(e.message)}}
 function loadWebsiteControl(){siteAnnouncement.value=state.website.announcement||'';siteHero.value=state.website.hero||'YOUR TYPE';siteFeatured.value=(state.website.featured||[]).join(',');siteSocial.value=state.website.social||'';sitePhone.value=state.website.phone||'';siteEmail.value=state.website.email||''}
 function dateInRange(o){let d=new Date(o.date);if(Number.isNaN(d.getTime()))return true;let from=reportFrom.value?new Date(reportFrom.value+'T00:00:00'):null,to=reportTo.value?new Date(reportTo.value+'T23:59:59'):null;return (!from||d>=from)&&(!to||d<=to)}
 function exportReportType(type){let orders=state.orders.filter(dateInRange);if(type==='sales'){let rev=orders.filter(o=>o.status!=='Cancelled').reduce((a,o)=>a+o.price*o.qty,0);downloadText('YOUR_TYPE_SALES_REPORT.csv','Order,Customer,Revenue,Status,Date\n'+orders.map(o=>`${o.id},${o.customer},${o.price*o.qty},${o.status},"${o.date}"`).join('\n'),'text/csv');reportPreview.textContent=`${orders.length} orders in range · Revenue ${money(rev)}`}else if(type==='orders'){downloadOrders();reportPreview.textContent=`${orders.length} orders exported`}else if(type==='inventory'){downloadInventory();reportPreview.textContent=`${state.inventory.length} stock rows exported`}else if(type==='products'){downloadText('YOUR_TYPE_PRODUCTS.csv','Name,SKU,Category,Price,Cost,Featured,Hidden\n'+state.products.map(p=>`"${p.name}",${p.sku},${p.category},${p.price},${p.cost||0},${!!p.featured},${!!p.hidden}`).join('\n'),'text/csv');reportPreview.textContent=`${state.products.length} products exported`}else if(type==='customers'){let map={};state.orders.forEach(o=>{map[o.customer]=map[o.customer]||{orders:0,total:0,phone:o.phone||''};map[o.customer].orders++;map[o.customer].total+=o.price*o.qty});downloadText('YOUR_TYPE_CUSTOMERS.csv','Customer,Phone,Orders,Total Spending\n'+Object.entries(map).map(([n,v])=>`"${n}",${v.phone},${v.orders},${v.total}`).join('\n'),'text/csv');reportPreview.textContent=`${Object.keys(map).length} customers exported`}}
 function updateDash(){let g=+state.settings.gst||0,live=state.orders.filter(o=>o.status!=='Cancelled'),rev=live.reduce((a,o)=>a+o.price*o.qty,0),lowN=state.inventory.filter(x=>x[2]>0&&x[2]<=x[3]).length;let gstTotal=0,profitTotal=0;live.forEach(o=>{let p=prod(o.productId),base=o.price/(1+g/100),gstAmt=o.price-base,cost=p?(+p.cost||0):0;gstTotal+=gstAmt*o.qty;profitTotal+=(base-cost)*o.qty});dashRevenue.textContent=money(rev);dashOrders.textContent=state.orders.length;dashLow.textContent=lowN;dashProfit.textContent=money(profitTotal);aRev.textContent=money(rev);aGst.textContent=money(gstTotal);aProfit.textContent=money(profitTotal);aAvg.textContent=money(live.length?rev/live.length:0);let now=Date.now(),day=86400000;function sumSince(ms){return live.filter(o=>{let d=new Date(o.date).getTime();return !Number.isNaN(d)&&now-d<=ms}).reduce((a,o)=>a+o.price*o.qty,0)}dashToday.textContent=money(sumSince(day));dashWeek.textContent=money(sumSince(7*day));dashMonth.textContent=money(sumSince(30*day));let statuses=['Pending','Processing','Shipped','Delivered','Cancelled','Confirmed','Packed','Out for Delivery'];dashStatuses.innerHTML=statuses.map(st=>`<div class=stat><span>${st}</span><b>${state.orders.filter(o=>o.status===st).length}</b></div>`).join('');dashRecent.innerHTML=state.orders.slice(0,5).map(o=>`<div class=row><span>${o.id} · ${o.customer}</span><b>${money(o.price*o.qty)}</b></div>`).join('')||'<div class=muted>No orders</div>';let tops={};state.orders.filter(o=>o.status!=='Cancelled').forEach(o=>tops[o.productId]=(tops[o.productId]||0)+o.qty);dashTop.innerHTML=Object.entries(tops).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([id,n])=>`<div class=row><span>${prod(id)?.name||'Deleted Product'}</span><b>${n} sold</b></div>`).join('')||'<div class=muted>No sales</div>';renderWishlist()}
 
 state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Array.isArray(p.colors)&&p.colors.length?p.colors:['Black','White','Charcoal'];});save();renderCategories();loadWebsiteControl();filterStore('all');renderInventory();renderProducts();renderCoupons();renderOrders();updateDash();
+</script>
+
+<script>
+/* FULL WEBSITE CONTROL — real server-backed controls */
+const FC_SECTIONS = {
+ home:'Home', collections:'Collections', motion:'Motion', featured:'Featured',
+ bestSellers:'Best Sellers', newCollection:'New Collection', trending:'Trending',
+ womenTops:'Women Tops', highlights:'Highlights', editorial:'Editorial', newsletter:'Newsletter'
+};
+function fcEscape(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+async function fcServer(url,opt={}){return api2(url,opt)}
+async function loadFullControl(){
+  if(typeof api2!=='function') return;
+  try{
+    const d=await api2('/api/admin/data');
+    const site=d.site||{}, st=d.settings||{};
+    const store=site.store||{};
+    const content=site.content||{};
+    fcProducts.textContent=(d.products||[]).length;
+    fcOrders.textContent=(d.orders||[]).length;
+    fcCustomers.textContent=(d.users||[]).length;
+    fcLow.textContent=(d.products||[]).filter(p=>(p.stock||0)>0&&(p.stock||0)<=5).length;
+    fcStoreName.value=store.name||'YOUR TYPE'; fcPhone.value=store.phone||''; fcWhatsapp.value=store.whatsapp||'';
+    fcEmail.value=store.email||''; fcAddress.value=store.address||''; fcCurrency.value=store.currency||'INR';
+    fcGST.value=st.gst??5; fcShipping.value=st.shipping??99; fcFreeShipping.value=st.freeShipping??1999;
+    fcHero.value=site.hero||'YOUR TYPE'; fcAnnouncement.value=site.announcement||'';
+    fcBanner.value=content.banner||''; fcBannerButton.value=content.bannerButton||''; fcBannerLink.value=content.bannerLink||'';
+    fcSectionToggles.innerHTML=Object.entries(FC_SECTIONS).map(([k,n])=>`<div class="adminMapCard"><b>${n}</b><div class="switchRow"><span class="fc-sec-label" data-label="${k}">${site.sections?.[k]===false?'OFF':'ON'}</span><input type="checkbox" data-fc-section="${k}" ${site.sections?.[k]===false?'':'checked'}></div></div>`).join('');
+    fcSectionSelect.innerHTML=Object.entries(FC_SECTIONS).map(([k,n])=>`<option value="${k}">${n}</option>`).join('');
+    renderFullSectionProducts();
+    const audit=Array.isArray(d.audit)?d.audit:[];
+    fcAudit.innerHTML=audit.slice(0,20).map(a=>`<div class="row"><span>${fcEscape(a.action)}</span><span class="muted">${new Date(a.time).toLocaleString()}</span></div>`).join('')||'No activity yet.';
+    await loadFullMedia();
+  }catch(e){toast(e.message||'Full control load failed')}
+}
+function toggleAllHomepageSections(on){document.querySelectorAll('[data-fc-section]').forEach(x=>x.checked=on)}
+async function saveFullStoreSettings(){
+  try{
+    await fcServer('/api/admin/settings',{method:'PATCH',body:JSON.stringify({
+      gst:num(fcGST.value),shipping:num(fcShipping.value),freeShipping:num(fcFreeShipping.value)
+    })});
+    await fcServer('/api/admin/store-settings',{method:'PATCH',body:JSON.stringify({
+      name:fcStoreName.value.trim(),phone:fcPhone.value.trim(),whatsapp:fcWhatsapp.value.trim(),
+      email:fcEmail.value.trim(),address:fcAddress.value.trim(),currency:fcCurrency.value.trim()||'INR'
+    })});
+    await sync(); toast('Store settings saved to server');
+  }catch(e){toast(e.message)}
+}
+async function saveFullHomepage(){
+  try{
+    const sections=Object.fromEntries([...document.querySelectorAll('[data-fc-section]')].map(x=>[x.dataset.fcSection,x.checked]));
+    await fcServer('/api/admin/site-config',{method:'PATCH',body:JSON.stringify({
+      hero:fcHero.value.trim(),announcement:fcAnnouncement.value.trim(),sections
+    })});
+    await fcServer('/api/admin/site-content',{method:'PATCH',body:JSON.stringify({
+      banner:fcBanner.value.trim(),bannerButton:fcBannerButton.value.trim(),bannerLink:fcBannerLink.value.trim()
+    })});
+    await sync(); toast('Homepage control saved to server');
+  }catch(e){toast(e.message)}
+}
+function renderFullSectionProducts(){
+  const key=fcSectionSelect.value, assigned=(state.website?.sectionProducts?.[key]||[]).map(String);
+  fcSectionProducts.innerHTML=state.products.map(p=>`<label class="sectionProductChoice"><input type="checkbox" data-fc-product="${fcEscape(p.id)}" ${assigned.includes(String(p.id))?'checked':''}><span>${fcEscape(p.name)} <span class="muted">(${fcEscape(p.sku||'')})</span></span></label>`).join('')||'<span class="muted">No products available.</span>';
+}
+async function saveFullSectionProducts(){
+  try{
+    const key=fcSectionSelect.value;
+    const map=Object.assign({},state.website?.sectionProducts||{});
+    map[key]=[...document.querySelectorAll('[data-fc-product]:checked')].map(x=>x.dataset.fcProduct);
+    await fcServer('/api/admin/site-config',{method:'PATCH',body:JSON.stringify({sectionProducts:map})});
+    await sync(); renderFullSectionProducts(); toast('Section products saved to server');
+  }catch(e){toast(e.message)}
+}
+async function uploadFullMedia(){
+  try{
+    const files=[...(fcMediaFiles.files||[])]; if(!files.length){toast('Select media first');return}
+    for(const f of files){
+      if(f.size>20*1024*1024)throw new Error(f.name+': maximum 20MB');
+      if(!['image/png','image/jpeg','image/webp','video/mp4','video/webm'].includes(f.type))throw new Error(f.name+': unsupported media type');
+      const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
+      await fcServer('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name,data,media:true})});
+    }
+    fcMediaFiles.value=''; await loadFullMedia(); toast('Media uploaded to server');
+  }catch(e){toast(e.message)}
+}
+async function loadFullMedia(){
+  try{
+    const d=await fcServer('/api/admin/media');
+    fcMediaList.innerHTML=(d.media||[]).map(m=>{
+      const src='/uploads/'+encodeURIComponent(m.name);
+      const preview=m.type.startsWith('video/')?`<video src="${src}" controls style="width:100%;max-height:180px"></video>`:`<img src="${src}" style="width:100%;max-height:180px;object-fit:cover" onerror="this.style.display='none'">`;
+      return `<div class="card"><div class="pic">${preview}</div><div class="info"><b>${fcEscape(m.name)}</b><p class="muted">${Math.round(m.size/1024)} KB · ${fcEscape(m.type)}</p><button class="btn danger" onclick="deleteFullMedia('${encodeURIComponent(m.name)}')">Delete</button></div></div>`;
+    }).join('')||'<div class="notice">No uploaded media yet.</div>';
+  }catch(e){toast(e.message)}
+}
+async function deleteFullMedia(name){
+  if(!confirm('Delete this media permanently?'))return;
+  try{await fcServer('/api/admin/media/'+name,{method:'DELETE'});await loadFullMedia();toast('Media deleted')}catch(e){toast(e.message)}
+}
+async function downloadServerBackup(){
+  try{
+    const d=await fcServer('/api/admin/backup');
+    downloadText('YOUR_TYPE_SERVER_BACKUP.json',JSON.stringify(d,null,2),'application/json');
+  }catch(e){toast(e.message)}
+}
+function openServerRestore(){
+  openModal(`<h2>Restore Server Backup</h2><p class="muted">This replaces server store data. Existing permanently deleted product IDs stay blocked.</p><input type=file id="serverRestoreFile" accept=".json"><input id="serverRestoreConfirm" placeholder="Type RESTORE_YOUR_TYPE"><button class="btn danger" onclick="restoreServerBackup()">Restore Server Data</button>`);
+}
+async function restoreServerBackup(){
+  const f=serverRestoreFile.files[0], confirmText=serverRestoreConfirm.value;
+  if(!f){toast('Choose backup file');return}
+  if(confirmText!=='RESTORE_YOUR_TYPE'){toast('Confirmation text is incorrect');return}
+  try{
+    const text=await f.text(), payload=JSON.parse(text);
+    await fcServer('/api/admin/restore',{method:'POST',body:JSON.stringify({confirm:confirmText,backup:payload})});
+    closeModal(); await sync(); await loadFullControl(); toast('Server backup restored');
+  }catch(e){toast(e.message)}
+}
 </script>
 <script>
 /* YOUR TYPE — SERVER CONNECTION BRIDGE
@@ -434,7 +767,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
         const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
         const safeName=f.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const up=await api('/api/admin/upload',{method:'POST',body:JSON.stringify({name:safeName,data})});
-        uploaded.push(up.url||('/uploads/'+encodeURIComponent(up.filename)));
+        uploaded.push(up.filename);
       }
       const image=uploaded[0]||'ornament.jpg';
       const sizesObj={S:0,M:0,L:0,XL:0,XXL:0};
@@ -468,7 +801,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
         const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});
         const safeName=f.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const up=await api('/api/admin/upload',{method:'POST',body:JSON.stringify({name:safeName,data})});
-        uploaded.push(up.url||('/uploads/'+encodeURIComponent(up.filename)));
+        uploaded.push(up.filename);
       }
       const sizesList=(document.getElementById('ez')?.value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean);
       const colors=(document.getElementById('ecolors')?.value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean);
@@ -571,7 +904,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
   const num=v=>Number(String(v??0).replace(/[^0-9.-]/g,''))||0;
   const esc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   const productById=id=>state.products.find(p=>String(p.id)===String(id));
-  function imageUrl(v){const s=String(v||'').trim();if(!s)return '';if(s.startsWith('data:')||s.startsWith('/')||s.startsWith('http'))return s;if(/^photos\//i.test(s)||/^uploads\//i.test(s))return '/'+s;return '/uploads/'+encodeURIComponent(s)}
+  function imageUrl(v){const s=String(v||'');if(!s)return '';if(s.startsWith('data:')||s.startsWith('/')||s.startsWith('http'))return s;return '/uploads/'+encodeURIComponent(s)}
   window.picHtml=function(p){const src=imageUrl(p?.image||(p?.images||[])[0]);return src?`<img src="${src}" alt="${esc(p?.name||'Product')}" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none';this.parentElement.classList.add('img-fallback');this.parentElement.dataset.fallback='YT'">`:'<span>YT</span>'};
 
   function localProduct(p){const sizes=p.sizes||{};return {id:String(p.id),name:p.name||'',price:num(p.price),cost:num(p.cost),sku:p.sku||'',category:p.category||'T-Shirts',description:p.description||'',sizes:Object.keys(sizes).filter(k=>['S','M','L','XL','XXL'].includes(k)),colors:Array.isArray(p.colors)&&p.colors.length?p.colors:['Black','White','Charcoal'],images:Array.isArray(p.images)&&p.images.length?p.images:[p.image||''],image:p.image||((p.images||[])[0]||''),hidden:p.active===false,featured:Boolean(p.featured)}};
@@ -586,8 +919,8 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
     state.inventory=[];products.forEach(p=>Object.entries(p.sizes||{}).forEach(([sz,n])=>state.inventory.push([String(p.id),sz,Math.max(0,num(n)),5])));
     state.orders=(Array.isArray(d.orders)?d.orders:[]).map(localOrder);
     state.coupons=Array.isArray(d.coupons)?d.coupons.map(c=>({id:c.id,code:c.code,percent:c.type==='percent'?num(c.value):0,min:num(c.minOrder),expiry:c.expiresAt?String(c.expiresAt).slice(0,10):'',active:c.active!==false,type:c.type||'percent',value:num(c.value)})):[];
-    state.reviews=d.reviews||[];state.newsletter=d.newsletter||[];state.returns=d.returns||[];state.notifications=d.notifications||[];state.audit=d.audit||[];
-    try{const sd=await fetch('/api/site-config',{cache:'no-store'}).then(r=>r.json());const site=sd.site||{};state.website=Object.assign({},state.website||{},site);state.sectionSettings=site.sections||state.sectionSettings}catch(_){}
+    state.reviews=d.reviews||[];state.newsletter=d.newsletter||[];state.returns=d.returns||[];state.notifications=d.notifications||[];state.audit=d.audit||[];state.settings=d.settings||state.settings||{};
+    try{const sd=await fetch('/api/site-config',{cache:'no-store'}).then(r=>r.json());const site=sd.site||{};state.website=Object.assign({},state.website||{},site);if(Array.isArray(site.categories))state.categories=site.categories.slice();state.sectionSettings=site.sections||state.sectionSettings}catch(_){}
     save();renderProducts(productSearch?.value||'');renderInventory();if(typeof renderVariantManager==='function')renderVariantManager();if(typeof renderSectionManager==='function')renderSectionManager();if(typeof syncColorManager==='function')syncColorManager();renderCoupons();renderOrders();if(typeof renderCustomerOrders==='function')renderCustomerOrders();filterStore('all');updateDash();
   }
 
@@ -610,7 +943,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
   window.bulkProducts=async function(action){const ids=selectedProductIds();if(!ids.length){toast('Select products first');return}if(action==='delete'&&!confirm('Delete selected products?'))return;try{await api2('/api/admin/products/bulk',{method:'POST',body:JSON.stringify({ids,action})});await sync();toast('Bulk product update saved to website')}catch(e){toast(e.message)}};
   window.deleteProduct=async function(id){if(!confirm('Delete this product from the website?'))return;try{await api2('/api/admin/products/'+encodeURIComponent(id),{method:'DELETE'});await sync();toast('Product deleted')}catch(e){toast(e.message)}};
 
-  async function uploadFiles(input){const out=[];for(const f of Array.from(input?.files||[])){if(!['image/png','image/jpeg','image/webp'].includes(f.type)){throw new Error('Only PNG, JPG or WEBP images are supported')}if(f.size>5*1024*1024)throw new Error('Each image must be 5MB or smaller');const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const x=await api2('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name,data})});out.push(x.url||('/uploads/'+encodeURIComponent(x.filename)))}return out}
+  async function uploadFiles(input){const out=[];for(const f of Array.from(input?.files||[])){if(!['image/png','image/jpeg','image/webp'].includes(f.type)){throw new Error('Only PNG, JPG or WEBP images are supported')}if(f.size>5*1024*1024)throw new Error('Each image must be 5MB or smaller');const data=await new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)});const x=await api2('/api/admin/upload',{method:'POST',body:JSON.stringify({name:f.name,data})});out.push(x.filename)}return out}
   window.saveProduct=async function(){try{const files=await uploadFiles(document.getElementById('nimg')),sizes=(document.getElementById('nsizes')?.value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean),colors=(document.getElementById('ncolors')?.value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean),nstock=Math.max(0,num(document.getElementById('nstock')?.value));const image=files[0]||'missing-product.jpg';const so={};['S','M','L','XL','XXL'].forEach(s=>so[s]=sizes.includes(s)?nstock:0);const body={name:document.getElementById('np')?.value.trim()||'New Product',sku:document.getElementById('nsku')?.value.trim()||('YT-'+Date.now()),price:String(num(document.getElementById('nprice')?.value)),cost:num(document.getElementById('ncost')?.value),category:document.getElementById('ncat')?.value||'T-Shirt',description:document.getElementById('ndesc')?.value||'',image,images:files.length?files:[image],colors,sizes:so,badge:'NEW',active:true};if(!num(body.price))throw new Error('Selling price is required');await api2('/api/admin/products',{method:'POST',body:JSON.stringify(body)});await sync();closeModal();toast('Product created on website')}catch(e){toast(e.message)}};
   window.saveEdit=async function(id){const p=productById(id);if(!p)return;try{const files=await uploadFiles(document.getElementById('ei')),sizes=(document.getElementById('ez')?.value||'S,M,L,XL,XXL').split(',').map(x=>x.trim()).filter(Boolean),colors=(document.getElementById('ecolors')?.value||'Black,White,Charcoal').split(',').map(x=>x.trim()).filter(Boolean),old=state.inventory.filter(x=>String(x[0])===String(id)),so={S:0,M:0,L:0,XL:0,XXL:0};old.forEach(x=>{if(sizes.includes(x[1]))so[x[1]]=Math.max(0,num(x[2]))});const body={name:document.getElementById('en')?.value.trim()||p.name,sku:document.getElementById('es')?.value.trim()||p.sku,price:String(num(document.getElementById('ep')?.value)),cost:num(document.getElementById('ecost')?.value),category:document.getElementById('ec')?.value.trim()||p.category,description:document.getElementById('edesc')?.value||'',colors,sizes:so,active:!p.hidden,featured:Boolean(p.featured)};if(files.length){body.image=files[0];body.images=(p.images||[]).concat(files)}await api2('/api/admin/products/'+encodeURIComponent(id),{method:'PATCH',body:JSON.stringify(body)});await sync();closeModal();toast('Product updated on website')}catch(e){toast(e.message)}};
 
@@ -640,7 +973,7 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
   const pid=id=>state.products.find(p=>String(p.id)===String(id));
   const normalizeCat=c=>String(c||'').toLowerCase().replace(/[-_\s]+/g,'');
 
-  window.picHtml=function(p){const raw=String(p?.image||p?.images?.[0]||'').trim();if(!raw)return '<span>YT</span>';let src=raw;if(!/^data:|^https?:|^\//i.test(raw)){if(/^photos\//i.test(raw)||/^uploads\//i.test(raw))src='/'+raw;else src='/uploads/'+encodeURIComponent(raw)}return `<img src="${esc(src)}" alt="${esc(p?.name||'Product')}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.remove();this.parentElement.classList.add('img-fallback');this.parentElement.dataset.fallback='YT'">`};
+  window.picHtml=function(p){const raw=String(p?.image||p?.images?.[0]||'');if(!raw)return '<span>YT</span>';let src=raw;if(/^data:|^https?:|^\//i.test(raw)===false)src=raw;return `<img src="${esc(src)}" alt="${esc(p?.name||'Product')}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.remove();this.parentElement.classList.add('img-fallback');this.parentElement.dataset.fallback='YT'">`};
 
   async function refreshAdminData(){
     if(!getAdminToken())return;
@@ -742,4 +1075,23 @@ state.variantStock=state.variantStock||{};state.products.forEach(p=>{p.colors=Ar
   const st=document.createElement('style'); st.textContent='html,body{width:100%;max-width:100%;overflow-x:hidden} @media(max-width:699px){.wrap{width:100%;max-width:100%;padding-left:12px;padding-right:12px}.modal{padding:10px}.modalbox{width:100%;max-width:100%;max-height:94vh}.orderbody{grid-template-columns:72px minmax(0,1fr)}.row{min-width:0}.row>*{min-width:0;overflow-wrap:anywhere}}'; document.head.appendChild(st);
 })();
 </script>
+
+<script>
+(function(){
+  function showNav(){const n=document.getElementById('ytPremiumAdminNav');if(n)n.style.display='block';}
+  window.ytToggleGroup=function(head){const card=head?.parentElement;if(card)card.classList.toggle('open')};
+  window.ytNavGo=function(id,el){
+    if(typeof window.go==='function') window.go(id);
+    document.querySelectorAll('.yt-nav-link').forEach(x=>x.classList.toggle('active',x.getAttribute('data-yt-target')===id));
+    document.querySelectorAll('.yt-home-actions .btn').forEach(x=>x.classList.remove('primary')); document.querySelectorAll('#ytMobileBottom button').forEach(x=>x.classList.toggle('active',x.getAttribute('data-target')===id));
+    const h=[...document.querySelectorAll('.yt-home-actions .btn')].find(x=>(x.getAttribute('onclick')||'').includes("'"+id+"'")); if(h)h.classList.add('primary');
+    showNav();
+  };
+  document.addEventListener('DOMContentLoaded',()=>{
+    showNav();
+    document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;b.classList.add('yt-pressed');setTimeout(()=>b.classList.remove('yt-pressed'),150);});
+  });
+})();
+</script>
+
 </body></html>
