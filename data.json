@@ -2,360 +2,7 @@
   "orders": [],
   "newsletter": [],
   "users": [],
-  "products": [
-    {
-      "name": "Akari Flight Tee",
-      "price": "₹1,549",
-      "image": "akari-flight-tee.jpg",
-      "badge": "SALE",
-      "oldPrice": "₹2,200",
-      "id": "p_001",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "akari-flight-tee.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": true
-    },
-    {
-      "name": "Ghamand Buddha's Blessing",
-      "price": "₹1,499",
-      "image": "buddhas-blessing-tee.jpg",
-      "badge": "SALE",
-      "oldPrice": "₹2,200",
-      "id": "p_003",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "buddhas-blessing-tee.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": true
-    },
-    {
-      "name": "Burning Oath T-Shirt",
-      "price": "₹1,399",
-      "image": "burning-oath-tshirt.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_004",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "burning-oath-tshirt.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": true
-    },
-    {
-      "name": "Who Are You T-Shirt",
-      "price": "₹1,499",
-      "image": "who-are-you-tshirt.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_005",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "who-are-you-tshirt.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "What You Fear T-Shirt",
-      "price": "₹1,399",
-      "image": "what-you-fear-tshirt.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_006",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "what-you-fear-tshirt.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Specter of Stillness T-Shirt",
-      "price": "₹1,499",
-      "image": "specter-stillness-tshirt.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_007",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "specter-stillness-tshirt.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Crowned Destiny Tee",
-      "price": "₹1,399",
-      "image": "crowned-destiny-tee.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_008",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "crowned-destiny-tee.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Chaos Oversize Tee",
-      "price": "₹1,399",
-      "image": "chaos.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_009",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "chaos.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Burning Oath Tee",
-      "price": "₹1,499",
-      "image": "bushido.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_010",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "bushido.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Chaos Destiny Tee",
-      "price": "₹1,399",
-      "image": "graffiti.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_011",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "graffiti.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Instinct Oversize Tee",
-      "price": "₹1,399",
-      "image": "armor.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_012",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "armor.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Bushido Graphic Tee",
-      "price": "₹1,499",
-      "image": "bushido.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_013",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "bushido.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Inferno Street Tee",
-      "price": "₹1,449",
-      "image": "chaos.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_014",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "chaos.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Midnight Graffiti Tee",
-      "price": "₹1,349",
-      "image": "graffiti.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_015",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "graffiti.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Ritual Oversize Tee",
-      "price": "₹1,499",
-      "image": "ornament.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_016",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "ornament.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    },
-    {
-      "name": "Dark Armor Tee",
-      "price": "₹1,399",
-      "image": "armor.jpg",
-      "badge": "NEW",
-      "oldPrice": "",
-      "id": "p_017",
-      "sizes": {
-        "S": 20,
-        "M": 20,
-        "L": 20,
-        "XL": 20,
-        "XXL": 20
-      },
-      "category": "T-Shirts",
-      "images": [
-        "armor.jpg"
-      ],
-      "active": true,
-      "likeKeys": {},
-      "featured": false
-    }
-  ],
+  "products": [],
   "sessions": {
     "a53bef2598b7ddfb97ed46ac1922ff8443b52b4aa5c4e6f063e719bc731d66a8": {
       "role": "admin",
@@ -367,25 +14,15 @@
       "userId": null,
       "expires": 1788044406643
     },
-    "a2d8a21656803f695cf5c34f0fad5943e641aabc28e32f1130736b4530abe031": {
+    "2147af11b9f833db2da07a51cbf0c042d9ac01a2887996415078c51e4c0a72cb": {
       "role": "admin",
       "userId": null,
-      "expires": 1788231613866
+      "expires": 1788215816177
     },
-    "01ea18907749f3611ce684a4bc0387c3d7c625026210cc230df1fc92902850f1": {
+    "ae5b157b2bf27215322090f14381ab9d59ddd3b536d817604c45709b6688ee4c": {
       "role": "admin",
       "userId": null,
-      "expires": 1788231808582
-    },
-    "30e5d8e05b2bad7d53f81a6dcb7519a4cf469bf4505f5dfe9549d39105790fdc": {
-      "role": "admin",
-      "userId": null,
-      "expires": 1788327687547
-    },
-    "b219a20b9a4cfdbf1dda5cb57c15a2766c9141fb55df8dd9c3cf2492784bdfd0": {
-      "role": "admin",
-      "userId": null,
-      "expires": 1788327687550
+      "expires": 1788220945455
     }
   },
   "reviews": [],
@@ -393,54 +30,54 @@
   "coupons": [],
   "returns": [],
   "audit": [],
-  "website": {
-    "heroEyebrow": "NEW COLLECTION / 2026",
-    "showFeatured": true,
-    "showBestSellers": true,
-    "showNewArrivals": true,
-    "showTrending": true,
-    "featuredIds": [
-      "p_001",
-      "p_002",
-      "p_003",
-      "p_004"
-    ],
-    "bestSellerIds": [
-      "p_002",
-      "p_003",
-      "p_005",
-      "p_008"
-    ],
-    "newArrivalIds": [
-      "p_009",
-      "p_010",
-      "p_011",
-      "p_012"
-    ],
-    "womenTopsIds": [
-      "p_004",
-      "p_005",
-      "p_008",
-      "p_009"
-    ],
+  "site": {
+    "hero": "YOUR TYPE",
+    "announcement": "New drops every week",
     "sections": {
-      "hero": true,
-      "trust": true,
+      "home": true,
       "collections": true,
       "motion": true,
       "featured": true,
       "bestSellers": true,
-      "newArrivals": true,
+      "newCollection": true,
       "trending": true,
       "womenTops": true,
+      "highlights": true,
       "editorial": true,
       "newsletter": true
-    }
+    },
+    "sectionProducts": {},
+    "colorPalette": [
+      "Black",
+      "White",
+      "Charcoal",
+      "Red",
+      "Blue",
+      "Green"
+    ]
   },
-  "storeSettings": {
+  "settings": {
+    "gst": 5,
     "shipping": 99,
-    "freeShipping": 999,
-    "currency": "₹",
-    "supportHours": "Mon–Sat · 10:00–18:00"
-  }
+    "freeShipping": 1999
+  },
+  "deletedProductIds": [
+    "p_001",
+    "p_002",
+    "p_003",
+    "p_004",
+    "p_005",
+    "p_006",
+    "p_007",
+    "p_008",
+    "p_009",
+    "p_010",
+    "p_011",
+    "p_012",
+    "p_013",
+    "p_014",
+    "p_015",
+    "p_016",
+    "p_017"
+  ]
 }
