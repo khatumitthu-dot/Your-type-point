@@ -328,6 +328,8 @@ input:focus,select:focus,textarea:focus,.search:focus{border-color:#7c2cff!impor
 <div id="modal" class="modal"><div class="modalbox"><button class="btn close" onclick="closeModal()">Close</button><div id="modalBody"></div></div></div><div id="toast" class="toast"></div>
 
 <script>
+async function api2(url,opts={}){ return api(url,opts); }
+
 const KEY='YOUR_TYPE_ADMIN_V1';
 let state=JSON.parse(localStorage.getItem(KEY)||'null')||{
  products:[
