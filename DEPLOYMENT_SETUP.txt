@@ -24,16 +24,3 @@ Use the exact ADMIN_USER and ADMIN_PASS values configured in Render.
 
 6) IMPORTANT
 File names are case-sensitive after deployment. Do not rename files in photos/ or change their capitalization unless you also update the references in the website.
-
-SUPABASE DATABASE CONNECTION (added)
-====================================
-The server can use the existing Supabase public.products table without exposing the service key to the browser.
-Set these SERVER-SIDE environment variables on Render (or your server):
-  SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
-  SUPABASE_SERVICE_ROLE_KEY=YOUR_SERVER_ONLY_SERVICE_ROLE_KEY
-
-Do NOT put SUPABASE_SERVICE_ROLE_KEY in index.html, admin.html, GitHub client-side code, or screenshots.
-When both variables are present, product reads/writes use Supabase: GET products, Add Product, Edit Product, Delete Product, and bulk product changes.
-If Supabase is not configured, the existing local data.json behavior remains available so the project does not break during setup.
-The current Supabase products table expected by this build has 18 columns, including jsonb sizes/colors/sections and timestamp created_at/updated_at.
-No new file is required for this connection; the connection code is in the existing server.js.
