@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <script>
-const APP_DATA_VERSION='YT_v2';
+const APP_DATA_VERSION='YT_v3_CLEAN';
 if(localStorage.getItem('APP_DATA_VERSION')!==APP_DATA_VERSION){
- Object.keys(localStorage).forEach(k=>/products|orders|customers|settings|homepage|activity|cache/i.test(k)&&localStorage.removeItem(k));
+ Object.keys(localStorage).forEach(k=>/products|orders|customers|settings|homepage|activity|cache|yourTypeCart|yourTypeWishlist/i.test(k)&&localStorage.removeItem(k));
  localStorage.setItem('APP_DATA_VERSION',APP_DATA_VERSION);
 }
 </script>
@@ -78,7 +78,7 @@ button:focus:not(:focus-visible){outline:none}
   </div>
   <div class="heroVisual">
     <div class="heroFrame">
-      <img src="photos/armor.jpg" alt="YOUR TYPE streetwear graphic">
+      
       <div class="orbit orbitOne"><span>YOUR TYPE · YOUR TYPE · YOUR TYPE · </span></div>
       <div class="orbit orbitTwo"><span>STREETWEAR / GRAPHICS / ATTITUDE / </span></div>
       <div class="heroStamp">YOUR<br>TYPE</div>
@@ -100,7 +100,7 @@ button:focus:not(:focus-visible){outline:none}
 <section id="collections" class="collections">
   <div class="sectionIntro"><p class="eyebrow">THE UNIFORM / 01</p><h2>Wear the<br>statement.</h2><p>Graphic-led pieces designed to work as a complete street uniform.</p></div>
   <div class="collectionTiles">
-    <a href="#shop" class="collectionTile tall"><img src="photos/chaos.jpg" alt="Tops"><span>TOPS <b>→</b></span></a>
+    <a href="#shop" class="collectionTile tall"><span>TOPS <b>→</b></span></a>
     <div class="collectionTile bottomsSwipe" id="bottomsSwipe" aria-label="Swipe to change bottoms">
       <div class="collectionMotionCarousel" id="bottomsCarousel" aria-label="Swipe bottoms">
         <div class="collectionMotionTrack" id="bottomsTrack"></div>
@@ -108,7 +108,7 @@ button:focus:not(:focus-visible){outline:none}
       </div>
       <a class="bottomsLink" href="#shop" aria-label="Shop bottoms">BOTTOMS <b>→</b></a>
     </div>
-    <a href="#shop" class="collectionTile"><img src="photos/ornament.jpg" alt="GRAPHICS"><span>GRAPHICS <b>→</b></span></a>
+    <a href="#shop" class="collectionTile"><span>GRAPHICS <b>→</b></span></a>
   </div>
 </section>
 
@@ -158,7 +158,7 @@ button:focus:not(:focus-visible){outline:none}
 
 <section id="editorialSection" class="editorialBanner">
   <div><p class="eyebrow">YOUR TYPE / 02</p><h2>Dark graphics.<br><span>Heavy attitude.</span></h2><p>Built for oversized fits, late nights and the street.</p><a class="btn primary" href="#shop">SHOP THE DROP →</a></div>
-  <div class="editorialArt"><img src="photos/graffiti.jpg" alt="YOUR TYPE graphic"></div>
+  <div class="editorialArt"></div>
 </section>
 
 <section id="newsletterSection" class="newsletter"><div class="newsletterVideo" aria-hidden="true"><video autoplay muted loop playsinline preload="metadata"><source src="photos/stay-in-loop.mp4" type="video/mp4"></video></div><p class="eyebrow">STAY IN THE LOOP</p><h2>Be first to the next drop.</h2><div class="email"><input id="newsletterEmail" type="email" autocomplete="email" placeholder="Enter your email" aria-label="Email address"><button type="button" onclick="joinNewsletter()">JOIN →</button></div><p id="newsletterHint" class="newsletterHint" aria-live="polite"></p></section>
@@ -235,7 +235,7 @@ function toggleCustomerCare(){
 <div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modalBox"><div class="modalTop"><h2 id="modalTitle">YOUR TYPE</h2><button onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
 
 <script>
-let products = [["Akari Flight Tee", "₹1,549", "akari-flight-tee.jpg", "SALE", "₹2,200"], ["Ghamand Chroma Instinct", "₹1,399", "chroma-instinct-tee.jpg", "SALE", "₹2,100"], ["Ghamand Buddha's Blessing", "₹1,499", "buddhas-blessing-tee.jpg", "SALE", "₹2,200"], ["Burning Oath T-Shirt", "₹1,399", "burning-oath-tshirt.jpg", "NEW"], ["Who Are You T-Shirt", "₹1,499", "who-are-you-tshirt.jpg", "NEW"], ["What You Fear T-Shirt", "₹1,399", "what-you-fear-tshirt.jpg", "NEW"], ["Specter of Stillness T-Shirt", "₹1,499", "specter-stillness-tshirt.jpg", "NEW"], ["Crowned Destiny Tee", "₹1,399", "crowned-destiny-tee.jpg", "NEW"], ["Chaos Oversize Tee", "₹1,399", "chaos.jpg", "NEW"], ["Burning Oath Tee", "₹1,499", "bushido.jpg", "NEW"], ["Chaos Destiny Tee", "₹1,399", "graffiti.jpg", "NEW"], ["Instinct Oversize Tee", "₹1,399", "armor.jpg", "NEW"], ["Bushido Graphic Tee", "₹1,499", "bushido.jpg", "NEW"], ["Inferno Street Tee", "₹1,449", "chaos.jpg", "NEW"], ["Midnight Graffiti Tee", "₹1,349", "graffiti.jpg", "NEW"], ["Ritual Oversize Tee", "₹1,499", "ornament.jpg", "NEW"], ["Dark Armor Tee", "₹1,399", "armor.jpg", "NEW"]];
+let products = [];
 let cart=JSON.parse(localStorage.getItem('yourTypeCart')||'[]'); let wishlist=[]; loadWishlistSafe(); let selectedSize='M';
 let selectedColor='Black';
 function selectModalColor(btn,color){
@@ -262,7 +262,8 @@ try{localStorage.setItem('yourTypeProductsCache',JSON.stringify(products))}catch
 function normalizeSearch(value){
  return String(value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
 }
-function productCardHTML(p,index){const liked=wishlist.includes(p[0]);const z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};return `<article class="card" onclick="openProduct(${index})"><div class="pic"><span class="badge">${p[3]||''}</span><button class="heart ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" aria-pressed="${liked}" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(event,this,${index})">${liked?'♥':'♡'}</button><img src="photos/${p[2]}" alt="${p[0]}" loading="lazy" draggable="false"><div class="quick">QUICK VIEW</div></div><div class="info"><h3>${p[0]}</h3><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><div class="sizes">${['S','M','L','XL'].map(sz=>`<button type="button" ${Number(z[sz]||0)<=0?'disabled':''} onclick="event.stopPropagation();selectCardSize(this,'${sz}')">${sz}</button>`).join('')}</div><button type="button" class="add" data-add-to-bag="${index}" ${Number(p[5]??20)<=0?'disabled':''}>${Number(p[5]??20)<=0?'SOLD OUT':'ADD TO BAG +'}</button></div></article>`}
+function productImage(raw){const v=String(raw||'').trim();if(!v)return '';if(/^data:|^https?:|^\//i.test(v))return v;if(/^photos\//i.test(v))return '/'+v;if(/^uploads\//i.test(v))return '/'+v;return '/uploads/'+encodeURIComponent(v)}
+function productCardHTML(p,index){const liked=wishlist.includes(p[0]);const z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};return `<article class="card" onclick="openProduct(${index})"><div class="pic"><span class="badge">${p[3]||''}</span><button class="heart ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" aria-pressed="${liked}" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(event,this,${index})">${liked?'♥':'♡'}</button><img src="${productImage(p[2])}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.onerror=null;this.style.visibility='hidden';"><div class="quick">QUICK VIEW</div></div><div class="info"><h3>${p[0]}</h3><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><div class="sizes">${['S','M','L','XL'].map(sz=>`<button type="button" ${Number(z[sz]||0)<=0?'disabled':''} onclick="event.stopPropagation();selectCardSize(this,'${sz}')">${sz}</button>`).join('')}</div><button type="button" class="add" data-add-to-bag="${index}" ${Number(p[5]??20)<=0?'disabled':''}>${Number(p[5]??20)<=0?'SOLD OUT':'ADD TO BAG +'}</button></div></article>`}
 let homepageProductSets={featuredIds:[],bestSellerIds:[],newArrivalIds:[],womenTopsIds:[]};
 function pickHomepageProducts(ids,fallback,limit=4){const byId=new Map(products.map(p=>[String(p[8]||''),p]));const chosen=(ids||[]).map(id=>byId.get(String(id))).filter(Boolean);return (chosen.length?chosen:fallback).slice(0,limit);}
 function renderCurated(){
@@ -279,7 +280,7 @@ function renderCurated(){
  fill('bestSellerGrid',best); fill('newCollectionGrid',fresh); fill('womenTopsGrid',women);
 }
 
-function renderProducts(){const q=(document.getElementById('searchInput')?.value||'').trim().toLowerCase();const list=products.map((p,index)=>({p,index,score:score(p[0])})).filter(x=>!q||x.score>0).sort((a,b)=>b.score-a.score||a.index-b.index);document.getElementById('resultCount').textContent=list.length+' PIECES';document.getElementById('products').innerHTML=list.map(({p,index},rank)=>{const liked=wishlist.includes(p[0]),z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};return `<article class="card" data-search-rank="${rank}" onclick="openProduct(${index})"><div class="pic"><span class="badge">${p[3]||''}</span><button class="heart ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" aria-pressed="${liked}" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(event,this,${index})">${liked?'♥':'♡'}</button><img src="photos/${p[2]}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.closest('.pic')?.classList.add('imageMissing');this.style.visibility='hidden'"><div class="quick">QUICK VIEW</div></div><div class="info"><div class="productNo">${String(index+1).padStart(2,'0')}</div><h3>${p[0]}</h3><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><div class="sizes">${['S','M','L','XL'].map(sz=>`<button type="button" ${Number(z[sz]||0)<=0?'disabled':''} onclick="event.stopPropagation();selectCardSize(this,'${sz}')">${sz}</button>`).join('')}</div><button type="button" class="add" data-add-to-bag="${index}" ${Number(p[5]??20)<=0?'disabled':''}>${Number(p[5]??20)<=0?'SOLD OUT':'ADD TO BAG +'}</button></div></article>`}).join('')||'<div class="empty">NO PRODUCTS FOUND</div>'}
+function renderProducts(){const q=(document.getElementById('searchInput')?.value||'').trim().toLowerCase();const list=products.map((p,index)=>({p,index,score:score(p[0])})).filter(x=>!q||x.score>0).sort((a,b)=>b.score-a.score||a.index-b.index);document.getElementById('resultCount').textContent=list.length+' PIECES';document.getElementById('products').innerHTML=list.map(({p,index},rank)=>{const liked=wishlist.includes(p[0]),z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};return `<article class="card" data-search-rank="${rank}" onclick="openProduct(${index})"><div class="pic"><span class="badge">${p[3]||''}</span><button class="heart ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" aria-pressed="${liked}" onclick="event.preventDefault();event.stopPropagation();toggleWishlist(event,this,${index})">${liked?'♥':'♡'}</button><img src="${productImage(p[2])}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.closest('.pic')?.classList.add('imageMissing');this.style.visibility='hidden'"><div class="quick">QUICK VIEW</div></div><div class="info"><div class="productNo">${String(index+1).padStart(2,'0')}</div><h3>${p[0]}</h3><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><div class="sizes">${['S','M','L','XL'].map(sz=>`<button type="button" ${Number(z[sz]||0)<=0?'disabled':''} onclick="event.stopPropagation();selectCardSize(this,'${sz}')">${sz}</button>`).join('')}</div><button type="button" class="add" data-add-to-bag="${index}" ${Number(p[5]??20)<=0?'disabled':''}>${Number(p[5]??20)<=0?'SOLD OUT':'ADD TO BAG +'}</button></div></article>`}).join('')||'<div class="empty">NO PRODUCTS FOUND</div>'}
 function selectCardSize(btn,size){
  const card=btn.closest('.card'); if(card) card.dataset.selectedSize=size;
  btn.parentElement.querySelectorAll('button').forEach(x=>x.classList.remove('chosen'));btn.classList.add('chosen');selectedSize=size;
@@ -350,7 +351,7 @@ function updateWishlist(){
  box.innerHTML=valid.length?valid.map(({name,i})=>{
    const p=products[i];
    return `<article class="wishlistItem" role="button" tabindex="0" onclick="openProduct(${i})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProduct(${i})}">
-     <div class="wishlistThumb"><img src="photos/${p[2]}" alt="${esc(p[0])}" loading="lazy" draggable="false" onerror="this.style.visibility='hidden'"></div>
+     <div class="wishlistThumb"><img src="${productImage(p[2])}" alt="${esc(p[0])}" loading="lazy" draggable="false" onerror="this.style.visibility='hidden'"></div>
      <div class="wishlistInfo"><span class="wishlistEyebrow">SAVED PIECE</span><b>${esc(p[0])}</b><span class="wishlistPrice">${esc(p[1])}</span><span class="wishlistHint">TAP TO VIEW</span></div>
      <button class="wishlistRemove" type="button" aria-label="Remove ${esc(p[0])} from wishlist" onclick="event.stopPropagation();removeWishlistByIndex(${i})">×</button>
    </article>`
@@ -373,7 +374,7 @@ function updateCart(){
  box.innerHTML=cart.length?`<div class="cartCustomizeIntro"><span class="eyebrow">YOUR TYPE / BAG</span><strong>Make it yours.</strong><small>Choose size, color and quantity before you buy.</small></div>`+cart.map((p,i)=>{
    const size=p.size||'M', color=p.color||'Black', qty=Number(p.qty||1);
    return `<article class="cartItem cartCustomizeItem">
-    <div class="cartItemVisual"><img src="photos/${p[2]}" alt="${esc(p[0])}" loading="lazy" draggable="false"><span class="cartItemNo">${String(i+1).padStart(2,'0')}</span></div>
+    <div class="cartItemVisual"><img src="${productImage(p[2])}" alt="${esc(p[0])}" loading="lazy" draggable="false" onerror="this.onerror=null;this.style.visibility='hidden';"><span class="cartItemNo">${String(i+1).padStart(2,'0')}</span></div>
     <div class="cartItemBody"><div class="cartItemTitle"><div><b>${esc(p[0])}</b><span>${esc(p[1])} each</span></div><button class="cartRemove" aria-label="Remove ${esc(p[0])}" onclick="removeItem(${i})">×</button></div>
     <div class="cartChoice"><label>SIZE<div class="cartChoiceBtns">${['S','M','L','XL','XXL'].map(sz=>`<button type="button" class="${size===sz?'chosen':''}" onclick="setCartSize(${i},'${sz}')">${sz}</button>`).join('')}</div></label>
     <label>COLOR<div class="cartChoiceBtns colorBtns">${(Array.isArray(p[9])&&p[9].length?p[9]:['Black','White','Charcoal']).map(c=>`<button type="button" class="${color===c?'chosen':''}" onclick="setCartColor(${i},'${c}')"><i class="colorDot ${String(c).toLowerCase()}"></i>${c}</button>`).join('')}</div></label></div>
@@ -416,7 +417,7 @@ function toggleModalWishlist(i,btn){
 function openProduct(i){
  const p=products[i],z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};
  const liked=wishlist.includes(wishlistKey(p));
- showModal(p[0],`<div class="productModal"><img src="photos/${p[2]}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.closest('.pic')?.classList.add('imageMissing');this.style.visibility='hidden'"><div><div class="productModalHead"><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><button type="button" class="modalBookmark ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" onclick="event.preventDefault();event.stopPropagation();toggleModalWishlist(${i},this)">${liked?'♥':'♡'}</button></div><p class="muted">Premium streetwear fit · Handpicked fabric · 7-day returns.</p><h4>SELECT SIZE</h4><div class="modalSizes">${['S','M','L','XL','XXL'].map(sz=>`<button ${Number(z[sz]||0)<=0?'disabled':''} onclick="selectModalSize(this,'${sz}')">${sz}${Number(z[sz]||0)<=0?' · SOLD OUT':''}</button>`).join('')}</div><h4>SELECT COLOR</h4><div class="modalSizes modalColors">${(Array.isArray(p[9])&&p[9].length?p[9]:['Black','White','Charcoal']).map(c=>`<button type="button" class="${(window.selectedColor||'Black')===c?'chosen':''}" onclick="selectModalColor(this,${JSON.stringify(c)})"><i class="colorDot ${String(c).toLowerCase()}"></i>${c}</button>`).join('')}</div><button class="checkout" onclick="modalAdd(${i})">ADD TO BAG — ${p[1]}</button><button class="buyNowBtn" onclick="modalBuyNow(${i})">BUY NOW</button><button class="reviewBtn" onclick="showReviews(${JSON.stringify(p[0])})">★ REVIEWS</button></div></div>`)
+ showModal(p[0],`<div class="productModal"><img src="${productImage(p[2])}" alt="${p[0]}" loading="lazy" draggable="false" onerror="this.closest('.pic')?.classList.add('imageMissing');this.style.visibility='hidden'"><div><div class="productModalHead"><div class="price">${p[1]} ${p[4]?'<del>'+p[4]+'</del>':''}</div><button type="button" class="modalBookmark ${liked?'liked':''}" aria-label="${liked?'Remove from wishlist':'Add to wishlist'}" onclick="event.preventDefault();event.stopPropagation();toggleModalWishlist(${i},this)">${liked?'♥':'♡'}</button></div><p class="muted">Premium streetwear fit · Handpicked fabric · 7-day returns.</p><h4>SELECT SIZE</h4><div class="modalSizes">${['S','M','L','XL','XXL'].map(sz=>`<button ${Number(z[sz]||0)<=0?'disabled':''} onclick="selectModalSize(this,'${sz}')">${sz}${Number(z[sz]||0)<=0?' · SOLD OUT':''}</button>`).join('')}</div><h4>SELECT COLOR</h4><div class="modalSizes modalColors">${(Array.isArray(p[9])&&p[9].length?p[9]:['Black','White','Charcoal']).map(c=>`<button type="button" class="${(window.selectedColor||'Black')===c?'chosen':''}" onclick="selectModalColor(this,${JSON.stringify(c)})"><i class="colorDot ${String(c).toLowerCase()}"></i>${c}</button>`).join('')}</div><button class="checkout" onclick="modalAdd(${i})">ADD TO BAG — ${p[1]}</button><button class="buyNowBtn" onclick="modalBuyNow(${i})">BUY NOW</button><button class="reviewBtn" onclick="showReviews(${JSON.stringify(p[0])})">★ REVIEWS</button></div></div>`)
 }
 async function showReviews(name){try{const r=await fetch('/api/reviews/'+encodeURIComponent(name)),d=await r.json(),reviews=d.reviews||[],avg=reviews.length?(reviews.reduce((a,r)=>a+r.rating,0)/reviews.length).toFixed(1):'5.0';showModal(name+' — Reviews',`<div class="reviews"><div class="reviewSummary"><b>★ ${avg}/5</b><span>${reviews.length} review${reviews.length===1?'':'s'}</span></div>${reviews.length?reviews.map(r=>`<div class="review"><b>${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</b><strong>${esc(r.title)}</strong><p>${esc(r.text)}</p><small>${esc(r.name)}${r.verified?' · Verified buyer':''}</small></div>`).join(''):'<p class="muted">No reviews yet. Be the first.</p>'}<button class="checkout" onclick="writeReview(${JSON.stringify(name)})">WRITE A REVIEW →</button></div>`)}catch(e){showModal('Reviews','<p class="muted">Could not load reviews right now.</p>')}}
 function writeReview(name){if(!localStorage.getItem('yourTypeCustomerToken')){showModal('SIGN IN REQUIRED','<p class="muted">Please sign in to leave a review.</p><button class="checkout" onclick="account()">SIGN IN →</button>');return}showModal('WRITE A REVIEW',`<form class="authForm" onsubmit="event.preventDefault();submitReview(${JSON.stringify(name)})"><select class="modalInput" id="reviewRating"><option value="5">★★★★★ — 5</option><option value="4">★★★★☆ — 4</option><option value="3">★★★☆☆ — 3</option><option value="2">★★☆☆☆ — 2</option><option value="1">★☆☆☆☆ — 1</option></select><input class="modalInput" id="reviewTitle" placeholder="Review title"><textarea class="modalInput" id="reviewText" maxlength="800" rows="5" placeholder="Tell us about the fit and quality"></textarea><button class="checkout" type="submit">SUBMIT REVIEW →</button></form>`)}
@@ -484,12 +485,7 @@ async function refreshStorefrontProducts(){try{const r=await fetch('/api/product
 catch(_){}}
 setInterval(refreshStorefrontProducts,15000);
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshStorefrontProducts();});
-const bottomsSlides=[
-  {image:'graffiti.jpg',name:'Chaos Destiny Tee',price:'₹1,399'},
-  {image:'ornament.jpg',name:'Dragon Wide Leg Pants',price:'₹1,699'},
-  {image:'bushido.jpg',name:'Shadow Combat Pants',price:'₹1,599'},
-  {image:'chaos.jpg',name:'Graphic Wide Leg Pants',price:'₹1,699'}
-];
+const bottomsSlides=[];
 let bottomsIndex=0;
 let bottomsDragging=false;
 let bottomsDragX=0;
@@ -583,13 +579,7 @@ function bottomsGo(dir){
   bottomsRender();
 })();
 
-const motionSlides=[
-  {image:'chaos.jpg',name:'Chaos Oversize Tee',price:'₹1,399'},
-  {image:'bushido.jpg',name:'Burning Oath Tee',price:'₹1,499'},
-  {image:'graffiti.jpg',name:'Chaos Destiny Tee',price:'₹1,399'},
-  {image:'armor.jpg',name:'Instinct Oversize Tee',price:'₹1,399'},
-  {image:'bushido.jpg',name:'Bushido Graphic Tee',price:'₹1,499'}
-];
+const motionSlides=[];
 let motionIndex=0;
 let motionDragging=false;
 let motionDragX=0;
@@ -812,9 +802,9 @@ loadWebsiteControl();setInterval(loadWebsiteControl,30000);
     const p=products[i]; if(!p)return; const z=p[6]||{S:p[5]??20,M:p[5]??20,L:p[5]??20,XL:p[5]??20,XXL:p[5]??20};
     selectedSize='M'; selectedColor='Black'; const imgs=imageList(i); const totalStock=Object.values(z).reduce((a,b)=>a+Number(b||0),0); const stockText=totalStock===0?'SOLD OUT':(totalStock<=5?'ONLY '+totalStock+' LEFT':'IN STOCK'); const stockClass=totalStock===0?'out':(totalStock<=5?'low':'');
     const related=products.map((x,j)=>({x,j})).filter(o=>o.j!==i&&String(o.x[10])==='true').slice(0,3); const rel=related.length?related:products.map((x,j)=>({x,j})).filter(o=>o.j!==i).slice(0,3);
-    showModal(p[0],`<div class="productModal"><div class="productGallery"><img id="ytMainProductImage" class="productMainImage" src="photos/${encodeURIComponent(imgs[0])}" alt="${esc2(p[0])}" onclick="openYTLightbox(this.src,this.alt)" onerror="this.src='photos/ornament.jpg'"><div class="galleryThumbs">${imgs.map((im,k)=>`<button type="button" class="${k===0?'active':''}" onclick="selectYTGallery(${JSON.stringify(im)},this)"><img src="photos/${encodeURIComponent(im)}" alt="${esc2(p[0])} image ${k+1}"></button>`).join('')}</div></div><div><div class="productModalHead"><div class="price">${esc2(p[1])} ${p[4]?'<del>'+esc2(p[4])+'</del>':''}</div><button type="button" class="modalBookmark" onclick="toggleModalWishlist(${i},this)">${wishlist.includes(wishlistKey(p))?'♥':'♡'}</button></div><div class="stockMeter ${stockClass}">${stockText}${totalStock>0?' · SIZE-WISE AVAILABILITY':''}</div><p class="productDescription">${esc2(meta[String(p[8]||p[0])]?.description||'Premium streetwear fit · Handpicked fabric · 7-day returns.')}</p><h4>SELECT SIZE</h4><div class="modalSizes">${['S','M','L','XL','XXL'].map(sz=>`<button ${Number(z[sz]||0)<=0?'disabled':''} onclick="selectModalSize(this,'${sz}')">${sz}${Number(z[sz]||0)<=0?' · SOLD OUT':''}</button>`).join('')}</div><h4>SELECT COLOR</h4><div class="modalSizes modalColors">${(Array.isArray(p[9])&&p[9].length?p[9]:['Black','White','Charcoal']).map(c=>`<button type="button" class="${selectedColor===c?'chosen':''}" onclick="selectModalColor(this,${JSON.stringify(c)})"><i class="colorDot ${String(c).toLowerCase()}"></i>${esc2(c)}</button>`).join('')}</div><button class="checkout" onclick="modalAdd(${i})">ADD TO BAG — ${esc2(p[1])}</button><button class="buyNowBtn" onclick="modalBuyNow(${i})">BUY NOW</button><button class="reviewBtn" onclick="showReviews(${JSON.stringify(p[0])})">★ REVIEWS</button><div class="relatedProducts"><h4>YOU MAY ALSO LIKE</h4><div class="relatedGrid">${rel.map(o=>`<button class="relatedCard" type="button" onclick="openProduct(${o.j})"><img src="photos/${encodeURIComponent(o.x[2])}" alt="${esc2(o.x[0])}"><span>${esc2(o.x[0])}<br>${esc2(o.x[1])}</span></button>`).join('')}</div></div></div></div>`);
+    showModal(p[0],`<div class="productModal"><div class="productGallery"><img id="ytMainProductImage" class="productMainImage" src="${productImage(imgs[0])}" alt="${esc2(p[0])}" onclick="openYTLightbox(this.src,this.alt)"><div class="galleryThumbs">${imgs.map((im,k)=>`<button type="button" class="${k===0?'active':''}" onclick="selectYTGallery(${JSON.stringify(im)},this)"><img src="${productImage(im)}" alt="${esc2(p[0])} image ${k+1}"></button>`).join('')}</div></div><div><div class="productModalHead"><div class="price">${esc2(p[1])} ${p[4]?'<del>'+esc2(p[4])+'</del>':''}</div><button type="button" class="modalBookmark" onclick="toggleModalWishlist(${i},this)">${wishlist.includes(wishlistKey(p))?'♥':'♡'}</button></div><div class="stockMeter ${stockClass}">${stockText}${totalStock>0?' · SIZE-WISE AVAILABILITY':''}</div><p class="productDescription">${esc2(meta[String(p[8]||p[0])]?.description||'Premium streetwear fit · Handpicked fabric · 7-day returns.')}</p><h4>SELECT SIZE</h4><div class="modalSizes">${['S','M','L','XL','XXL'].map(sz=>`<button ${Number(z[sz]||0)<=0?'disabled':''} onclick="selectModalSize(this,'${sz}')">${sz}${Number(z[sz]||0)<=0?' · SOLD OUT':''}</button>`).join('')}</div><h4>SELECT COLOR</h4><div class="modalSizes modalColors">${(Array.isArray(p[9])&&p[9].length?p[9]:['Black','White','Charcoal']).map(c=>`<button type="button" class="${selectedColor===c?'chosen':''}" onclick="selectModalColor(this,${JSON.stringify(c)})"><i class="colorDot ${String(c).toLowerCase()}"></i>${esc2(c)}</button>`).join('')}</div><button class="checkout" onclick="modalAdd(${i})">ADD TO BAG — ${esc2(p[1])}</button><button class="buyNowBtn" onclick="modalBuyNow(${i})">BUY NOW</button><button class="reviewBtn" onclick="showReviews(${JSON.stringify(p[0])})">★ REVIEWS</button><div class="relatedProducts"><h4>YOU MAY ALSO LIKE</h4><div class="relatedGrid">${rel.map(o=>`<button class="relatedCard" type="button" onclick="openProduct(${o.j})"><img src="photos/${encodeURIComponent(o.x[2])}" alt="${esc2(o.x[0])}"><span>${esc2(o.x[0])}<br>${esc2(o.x[1])}</span></button>`).join('')}</div></div></div></div>`);
   };
-  window.selectYTGallery=function(src,btn){const im=$('ytMainProductImage');if(im){im.src='photos/'+encodeURIComponent(src);im.onclick=()=>openYTLightbox(im.src,im.alt)};btn?.parentElement?.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn?.classList.add('active')};
+  window.selectYTGallery=function(src,btn){const im=$('ytMainProductImage');if(im){im.src=productImage(src);im.onclick=()=>openYTLightbox(im.src,im.alt)};btn?.parentElement?.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn?.classList.add('active')};
   async function loadWebsite(){try{const r=await fetch('/api/website',{cache:'no-store'}),d=await r.json(),w=d.website||{};homepageProductSets={featuredIds:Array.isArray(w.featuredIds)?w.featuredIds:[],bestSellerIds:Array.isArray(w.bestSellerIds)?w.bestSellerIds:[],newArrivalIds:Array.isArray(w.newArrivalIds)?w.newArrivalIds:[],womenTopsIds:Array.isArray(w.womenTopsIds)?w.womenTopsIds:[]};if($('siteHeroTitle')&&w.hero)$('siteHeroTitle').textContent=w.hero;if($('siteHeroSub')&&w.heroSub)$('siteHeroSub').textContent=w.heroSub;if($('highlightText')&&w.highlight)$('highlightText').textContent=w.highlight;if($('siteAnnouncementBar')&&w.announcement){$('siteAnnouncementBar').querySelectorAll('span').forEach(x=>x.textContent='✦ '+w.announcement)}if($('shop'))$('shop').style.display=w.showFeatured===false?'none':'';if($('bestSellers'))$('bestSellers').style.display=w.showBestSellers===false?'none':'';if($('newCollection'))$('newCollection').style.display=w.showNewArrivals===false?'none':'';if($('trending'))$('trending').style.display=w.showTrending===false?'none':'';renderCurated();}catch(_){} }
   async function loadMeta(){try{const r=await fetch('/api/products',{cache:'no-store'}),d=await r.json();(d.products||[]).forEach(p=>{meta[String(p.id)]={images:p.images||[p.image],description:p.description||''}})}catch(_){} }
   async function boot(){await Promise.all([loadWebsite(),loadMeta()]);}
