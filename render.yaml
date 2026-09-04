@@ -1,9 +1,6 @@
 services:
   - type: web
-    name: your-type
+    name: your-type-store
     runtime: node
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: NODE_VERSION
-        value: "20"
+    buildCommand: "npm install"
+    startCommand: "node server.js"
