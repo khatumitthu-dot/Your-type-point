@@ -5,7 +5,7 @@ const http = require("http");
 
 // Example patch:
 // OLD:
-// const u = url.parse(req.url), p = u.pathname;
+// const u = new URL(req.url, `http://${req.headers.host}`), p = u.pathname;
 
 // NEW:
 function parseRequest(req){

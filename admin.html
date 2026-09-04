@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+const APP_DATA_VERSION='YT_v2';
+if(localStorage.getItem('APP_DATA_VERSION')!==APP_DATA_VERSION){
+ Object.keys(localStorage).forEach(k=>/products|orders|customers|settings|homepage|activity|cache/i.test(k)&&localStorage.removeItem(k));
+ localStorage.setItem('APP_DATA_VERSION',APP_DATA_VERSION);
+}
+</script>
+
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>YOUR TYPE — Launch Ready Store & Admin</title>
 <style>
