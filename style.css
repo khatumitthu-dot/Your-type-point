@@ -7,7 +7,7 @@
 .motionCarousel{position:relative;max-width:1180px;height:455px;margin:0 auto;touch-action:pan-y;user-select:none}.motionTrack{position:absolute;inset:0}.motionCard{position:absolute;left:50%;top:48%;width:230px;transform:translate(-50%,-50%) translateX(calc(var(--distance) * 265px + var(--drag, 0px))) scale(.72);opacity:.13;filter:brightness(.55);transition:transform .5s cubic-bezier(.2,.8,.25,1),opacity .5s ease,filter .5s ease;pointer-events:none}.motionCard.isCenter{width:310px;transform:translate(-50%,-50%) translateX(var(--drag, 0px)) scale(1);opacity:1;filter:none;z-index:4}.motionCard.isLeft,.motionCard.isRight{opacity:.25;filter:brightness(.5);z-index:2}.motionCard.isFar{opacity:0;z-index:1}.motionCardImage{height:365px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:transparent}.motionCardImage img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.8,.25,1),opacity .5s ease}.motionCard.isCenter .motionCardImage img{transform:scale(1.02)}.motionCard.isLeft .motionCardImage img,.motionCard.isRight .motionCardImage img{transform:scale(.92)}.motionCardInfo{display:flex;justify-content:space-between;gap:12px;padding:9px 2px 0;font-size:9px;letter-spacing:1px}.motionCardInfo span{color:#777}.motionCardInfo b{font-weight:normal;color:#ddd}.motionHint{position:absolute;left:50%;bottom:2px;transform:translateX(-50%);font-size:8px;letter-spacing:3px;color:#555;white-space:nowrap}
 @media(max-width:900px){.motionSection{padding:46px 16px 30px}.motionHead h2{font-size:40px;letter-spacing:-2px}.motionLead{font-size:8px;max-width:140px}.motionCarousel{height:390px}.motionCard{width:150px;transform:translate(-50%,-50%) translateX(calc(var(--distance) * 190px + var(--drag, 0px))) scale(.7)}.motionCard.isCenter{width:250px;transform:translate(-50%,-50%) translateX(var(--drag, 0px)) scale(1)}.motionCard.isLeft{transform:translate(-50%,-50%) translateX(calc(-190px + var(--drag, 0px))) scale(.7)}.motionCard.isRight{transform:translate(-50%,-50%) translateX(calc(190px + var(--drag, 0px))) scale(.7)}.motionCardImage{height:315px}}
 @media(max-width:520px){.motionHead{display:block}.motionLead{text-align:left;margin-top:12px}.motionCarousel{height:360px}.motionCard{width:120px;transform:translate(-50%,-50%) translateX(calc(var(--distance) * 145px + var(--drag, 0px))) scale(.62)}.motionCard.isCenter{width:220px;transform:translate(-50%,-50%) translateX(var(--drag, 0px)) scale(1)}.motionCard.isLeft{transform:translate(-50%,-50%) translateX(calc(-145px + var(--drag, 0px))) scale(.62)}.motionCard.isRight{transform:translate(-50%,-50%) translateX(calc(145px + var(--drag, 0px))) scale(.62)}.motionCardImage{height:285px}.motionCardInfo{font-size:8px}.motionHint{bottom:0}}
-@media(max-width:900px){.shipping{font-size:8px;height:30px}.siteHeader{height:64px;padding:0 16px;gap:10px}.siteHeader nav{display:none}.logo{font-size:22px}.actions{margin-left:auto;gap:3px}.actions button{font-size:18px}.heroEditorial{min-height:0;display:flex;flex-direction:column}.heroMeta{position:relative;order:0;top:auto;left:auto;right:auto;padding:18px 16px}.heroCopy{order:1;padding:38px 22px 30px}.heroCopy h1{font-size:54px;letter-spacing:-4px}.heroCopy .sub{font-size:13px}.buttons{margin-top:24px}.btn{padding:13px 18px}.heroVisual{order:2;padding:0 16px 38px}.heroFrame{height:470px;width:100%}.heroStamp{font-size:58px}.orbitOne{width:80%;height:26%}.orbitTwo{width:96%;height:32%}.scrollHint{position:relative;order:3;left:auto;bottom:auto;padding:0 22px 22px}.trust{grid-template-columns:1fr 1fr}.trust div{padding:17px 12px}.trust b{font-size:9px}.trust small{font-size:8px}.collections{padding:70px 16px;display:block}.sectionIntro{margin-bottom:28px}.collectionTiles{grid-template-columns:1.1fr 1fr}.collectionTile.tall{min-height:390px}.collectionTile{min-height:250px}.collectionTile:nth-child(3){display:none}.productsSection{padding:65px 10px}.sectionHead h2{font-size:32px}.grid{grid-template-columns:1fr 1fr;gap:8px}.pic{height:250px}.info{padding:10px}.info h3{font-size:10px;line-height:1.35}.price{font-size:11px}.sizes{gap:3px}.sizes button{padding:5px 6px;font-size:8px}.add{font-size:9px;padding:10px 3px}.quick{display:none}.editorialBanner{margin:0 10px 65px;display:block;min-height:0}.editorialBanner>div:first-child{padding:60px 25px}.editorialArt{height:330px}.newsletter{padding:70px 16px}.newsletterVideo{width:64px;height:40px;margin-bottom:16px}footer{grid-template-columns:1fr 1fr;padding:45px 16px;gap:25px}.footBrand{grid-column:1/-1}.drawer{width:min(100%,390px)}.productModal{grid-template-columns:1fr}.productModal>img{height:260px}.modalBox{padding:16px}}
+@media(max-width:900px){.shipping{font-size:8px;height:30px}.siteHeader{height:64px;padding:0 10px;gap:8px}.siteHeader nav{display:flex;flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;gap:14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.siteHeader nav::-webkit-scrollbar{display:none}.siteHeader nav a{flex:0 0 auto;font-size:9px;letter-spacing:.08em}.logo{font-size:22px}.actions{margin-left:auto;gap:3px}.actions button{font-size:18px}.heroEditorial{min-height:0;display:flex;flex-direction:column}.heroMeta{position:relative;order:0;top:auto;left:auto;right:auto;padding:18px 16px}.heroCopy{order:1;padding:38px 22px 30px}.heroCopy h1{font-size:54px;letter-spacing:-4px}.heroCopy .sub{font-size:13px}.buttons{margin-top:24px}.btn{padding:13px 18px}.heroVisual{order:2;padding:0 16px 38px}.heroFrame{height:470px;width:100%}.heroStamp{font-size:58px}.orbitOne{width:80%;height:26%}.orbitTwo{width:96%;height:32%}.scrollHint{position:relative;order:3;left:auto;bottom:auto;padding:0 22px 22px}.trust{grid-template-columns:1fr 1fr}.trust div{padding:17px 12px}.trust b{font-size:9px}.trust small{font-size:8px}.collections{padding:70px 16px;display:block}.sectionIntro{margin-bottom:28px}.collectionTiles{grid-template-columns:1.1fr 1fr}.collectionTile.tall{min-height:390px}.collectionTile{min-height:250px}.collectionTile:nth-child(3){display:none}.productsSection{padding:65px 10px}.sectionHead h2{font-size:32px}.grid{grid-template-columns:1fr 1fr;gap:8px}.pic{height:250px}.info{padding:10px}.info h3{font-size:10px;line-height:1.35}.price{font-size:11px}.sizes{gap:3px}.sizes button{padding:5px 6px;font-size:8px}.add{font-size:9px;padding:10px 3px}.quick{display:none}.editorialBanner{margin:0 10px 65px;display:block;min-height:0}.editorialBanner>div:first-child{padding:60px 25px}.editorialArt{height:330px}.newsletter{padding:70px 16px}.newsletterVideo{width:64px;height:40px;margin-bottom:16px}footer{grid-template-columns:1fr 1fr;padding:45px 16px;gap:25px}.footBrand{grid-column:1/-1}.drawer{width:min(100%,390px)}.productModal{grid-template-columns:1fr}.productModal>img{height:260px}.modalBox{padding:16px}}
 @media(max-width:430px){.heroCopy h1{font-size:47px}.heroFrame{height:430px}.heroStamp{font-size:48px}.collectionTiles{grid-template-columns:1fr 1fr}.collectionTile.tall{min-height:330px}.collectionTile{min-height:220px}.pic{height:205px}.sectionHead{align-items:end}.sectionHead h2{font-size:28px}.sectionHead span{font-size:8px}}
 
 /* SMALL HEADER LOGO VIDEO */
@@ -809,222 +809,39 @@ html{scroll-padding-top:110px}
 @media(max-width:520px){
   .card .add{min-height:46px;font-size:9px;letter-spacing:1.6px;padding:11px 7px}
 }
-
-/* FINAL STOREFRONT POLISH — preserves the existing YOUR TYPE theme. */
-.headerVideo{display:flex!important;align-items:center;justify-content:center;flex:0 0 58px;width:58px;height:38px;border-left:1px solid #252525;padding-left:8px;margin-left:2px;overflow:hidden;opacity:.96}
-.headerVideo video{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:screen;transform:scale(.82);filter:contrast(1.08) brightness(1.08)}
-.headerVideo:hover{opacity:1}
-.light .headerVideo{border-left-color:#d5d5d5}.light .headerVideo video{mix-blend-mode:multiply;filter:invert(1) contrast(1.08)}
-.productsSection .grid{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
-.productsSection .pic{height:clamp(300px,30vw,430px)}
-.productsSection .card,.curatedGrid .card{min-width:0;overflow:hidden}
-.curatedGrid .pic{height:360px}
-.curatedGrid .info{min-height:150px}
-.stockLine{font-size:9px;letter-spacing:1.5px;color:#777;margin-top:8px}.stockLine.low{color:#c39a68}.stockLine.out{color:#a66}
-.pic img{background:#090909}
-@media(min-width:901px){
-  .siteHeader{padding-left:3.5%;padding-right:3.5%;gap:26px}
-  .siteHeader nav{gap:24px}
-  .heroVisual{padding-right:5%;padding-left:2%}
-  .heroFrame{width:min(640px,100%);height:min(74vh,700px)}
-  .productsSection,.curatedSection{padding-left:5%;padding-right:5%}
-  .productsSection .grid{gap:18px}
-  .curatedGrid{gap:18px}
-}
-@media(min-width:901px) and (max-width:1200px){.productsSection .grid{grid-template-columns:repeat(3,minmax(0,1fr))}.curatedGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.curatedGrid .card:nth-child(4){display:none}.curatedGrid .pic{height:320px}}
+/* WEBSITE-ONLY FIX 29: desktop navigation + original header video */
+/* Keep the existing desktop navigation desktop-only on phones, and restore the original header video. */
+.siteHeader .headerVideo{display:flex !important;}
 @media(max-width:900px){
-  .headerVideo{flex-basis:42px;width:42px;height:30px;border-left:0;padding-left:0;margin-left:0}
-  .headerVideo video{transform:scale(.74)}
-  .productsSection .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .productsSection .pic{height:250px}
-  .curatedGrid .pic{height:250px}
-  .curatedGrid .info{min-height:0}
-  .stockLine{font-size:8px;margin-top:6px}
-}
-@media(max-width:430px){.headerVideo{flex-basis:38px;width:38px;height:28px}.headerVideo video{transform:scale(.7)}.siteHeader{gap:7px}.siteHeader .actions{gap:1px}}
-
-/* =========================================================
-   YOUR TYPE — DESKTOP STABILITY / NO-CUT-OFF FIX
-   Keeps the existing visual theme; fixes desktop sizing,
-   wrapping, overflow and grid behavior.
-   ========================================================= */
-html,body{width:100%;max-width:100%;overflow-x:hidden}
-body{min-width:0}
-.siteHeader,.siteHeader nav,.actions,.heroEditorial,.heroCopy,.heroVisual,.collections,.productsSection,.curatedSection,.trendSection,.highlightsSection,.editorialBanner,.motionSection,.footer,.newsletterSection{min-width:0}
-.siteHeader{width:100%}
-.siteHeader nav{min-width:0;flex:1 1 auto;justify-content:center;flex-wrap:wrap}
-.siteHeader nav a{white-space:nowrap}
-.actions{flex:0 0 auto}
-.heroEditorial{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);width:100%}
-.heroCopy,.heroVisual{min-width:0}
-.heroCopy h1{max-width:100%;overflow-wrap:anywhere;word-break:normal}
-.heroFrame{max-width:100%}
-.heroFrame>img,.collectionTile img,.pic img,.motionCardImage img{max-width:100%}
-.collections{grid-template-columns:minmax(260px,.75fr) minmax(0,1.75fr)}
-.collectionTiles,.collectionTile{min-width:0}
-.collectionTile span{max-width:calc(100% - 32px);white-space:normal}
-.productsSection,.curatedSection{width:100%;max-width:1600px;margin-left:auto;margin-right:auto}
-.productsSection .grid,.curatedGrid{width:100%;min-width:0}
-.productsSection .card,.curatedGrid .card{min-width:0;width:100%}
-.info h3,.info .price,.stockLine{overflow-wrap:anywhere}
-.trendSection{width:100%;min-width:0}
-.trendCopy,.trendCards,.trendCard{min-width:0}
-.trendCopy h2,.trendCopy>p:not(.eyebrow){max-width:100%;overflow-wrap:anywhere}
-.trendCards{grid-template-columns:repeat(3,minmax(0,1fr))}
-.trendCard b,.trendCard small{overflow-wrap:anywhere}
-.highlightCards{grid-template-columns:repeat(4,minmax(0,1fr))}
-.highlightCards article{min-width:0}
-.motionCarousel,.motionTrack{min-width:0;max-width:100%}
-.motionCard{min-width:0}
-.motionCardInfo span,.motionCardInfo b{overflow-wrap:anywhere}
-@media (min-width:901px) and (max-width:1200px){
- .siteHeader{padding-left:3%;padding-right:3%;gap:14px}
- .siteHeader nav{gap:14px;font-size:9px}
- .logo{font-size:21px;letter-spacing:2.4px;padding-right:14px}
- .heroEditorial{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
- .heroCopy{padding-left:5%;padding-right:4%}
- .heroCopy h1{font-size:clamp(52px,6.2vw,78px);letter-spacing:-4px}
- .heroVisual{padding-right:4%;padding-left:1%}
- .heroFrame{height:min(68vh,590px)}
- .collections{grid-template-columns:minmax(230px,.72fr) minmax(0,1.28fr);gap:30px}
- .collectionTiles{grid-template-columns:repeat(2,minmax(0,1fr))}
- .collectionTile.tall{min-height:330px}
- .productsSection .grid,.curatedGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
- .productsSection .pic,.curatedGrid .pic{height:330px}
- .trendSection{gap:4vw}
- .trendCopy h2{font-size:clamp(48px,6vw,72px)}
-}
-@media (min-width:1201px){
- .siteHeader{padding-left:max(4%,calc((100vw - 1600px)/2));padding-right:max(4%,calc((100vw - 1600px)/2))}
- .heroEditorial{max-width:1800px;margin:0 auto}
- .heroCopy{padding-left:7%}
- .heroVisual{padding-right:7%}
- .sectionHead h2{max-width:900px}
- .trendSection,.highlightsSection{max-width:1600px;margin-left:auto;margin-right:auto}
-}
-button,input,textarea,select,a,h1,h2,h3,h4,p,span,small,strong,b{max-width:100%}
-
-/* FINAL TYPOGRAPHY BALANCE — desktop follows the same compact proportions as mobile. */
-@media (min-width:901px){
-  .heroCopy h1{font-size:clamp(58px,5.6vw,88px);line-height:.9;letter-spacing:-4.5px;margin:18px 0 26px}
-  .heroCopy .sub{font-size:14px;max-width:520px}
-  .sectionHead h2{font-size:clamp(42px,4.2vw,62px);line-height:.94;letter-spacing:-3px}
-  .sectionNote{font-size:11px;line-height:1.6}
-  .trendCopy h2{font-size:clamp(52px,5.2vw,78px);line-height:.9;letter-spacing:-4px}
-  .editorialBanner h2{font-size:clamp(52px,5.2vw,74px);line-height:.92;letter-spacing:-4px}
-  .motionHead h2{font-size:clamp(42px,4.4vw,62px);line-height:.94;letter-spacing:-3px}
-  .motionSubline,.motionLead{font-size:9px}
-  .productsSection .pic,.curatedGrid .pic{height:clamp(300px,27vw,390px)}
-}
-@media (min-width:901px) and (max-width:1200px){
-  .heroCopy h1{font-size:clamp(54px,6vw,74px)}
-  .sectionHead h2{font-size:clamp(38px,4.5vw,54px)}
-  .trendCopy h2{font-size:clamp(48px,5.8vw,68px)}
-  .editorialBanner h2{font-size:clamp(46px,5.8vw,66px)}
-  .motionHead h2{font-size:clamp(40px,4.8vw,56px)}
-}
-
-/* =========================================================
-   FINAL DESKTOP TYPOGRAPHY MATCH
-   Desktop keeps the same typography proportions as the
-   phone layout: compact, readable, no oversized headings,
-   no clipping or stretched text. Layout/theme unchanged.
-   ========================================================= */
-@media (min-width:901px){
-  body{font-size:16px}
-  .siteHeader{height:82px}
-  .siteHeader nav{font-size:10px;letter-spacing:1.2px}
-  .logo{font-size:25px;letter-spacing:3.2px}
-
-  .heroCopy{padding-top:105px;padding-bottom:105px}
-  .eyebrow{font-size:10px;letter-spacing:4px;line-height:1.4}
-  .heroCopy h1{
-    font-size:clamp(54px,4.4vw,72px)!important;
-    line-height:.9!important;
-    letter-spacing:-3.8px!important;
-    margin:18px 0 24px!important;
-    max-width:650px;
-  }
-  .heroCopy h1 em{font-weight:300}
-  .heroCopy .sub,.sub{font-size:14px;line-height:1.6;max-width:520px}
-  .buttons{margin-top:28px}
-  .btn{font-size:10px;padding:14px 22px}
-
-  .sectionHead h2,
-  .sectionIntro h2{
-    font-size:clamp(40px,3.6vw,56px)!important;
-    line-height:.94!important;
-    letter-spacing:-2.8px!important;
-  }
-  .sectionHead{margin-bottom:24px}
-  .sectionNote{font-size:11px;line-height:1.6}
-
-  .trendCopy h2{
-    font-size:clamp(46px,4.2vw,66px)!important;
-    line-height:.9!important;
-    letter-spacing:-3px!important;
-  }
-  .trendCopy>p:not(.eyebrow){font-size:16px;line-height:1.7}
-  .motionHead h2{
-    font-size:clamp(40px,3.8vw,58px)!important;
-    line-height:.94!important;
-    letter-spacing:-2.8px!important;
-  }
-  .motionSubline,.motionLead{font-size:9px;line-height:1.5}
-  .editorialBanner h2{
-    font-size:clamp(46px,4.2vw,66px)!important;
-    line-height:.92!important;
-    letter-spacing:-3px!important;
-  }
-
-  .productsSection{padding-top:72px;padding-bottom:72px}
-  .productsSection .pic,.curatedGrid .pic{height:clamp(300px,25vw,380px)!important}
-  .info h3{font-size:13px;line-height:1.35}
-  .price{font-size:13px}
-  .stockLine{font-size:9px}
-
-  /* Keep desktop card text inside its card instead of stretching it. */
-  .trust b{font-size:11px;line-height:1.3}
-  .trust small{font-size:9px;line-height:1.45}
-  .trendCard b{font-size:14px;line-height:1.25}
-  .trendCard small{font-size:10px;line-height:1.5}
-}
-
-/* Wide monitors should not turn the brand typography into billboard text. */
-@media (min-width:1400px){
-  .heroCopy h1{font-size:68px!important}
-  .sectionHead h2,.sectionIntro h2{font-size:52px!important}
-  .trendCopy h2{font-size:62px!important}
-  .motionHead h2{font-size:54px!important}
-  .editorialBanner h2{font-size:62px!important}
+  .siteHeader nav{display:none !important;}
+  .siteHeader .headerVideo{display:flex !important;}
 }
 
 
-/* FINAL RESPONSIVE POLISH — desktop typography matches the compact phone look.
-   Keeps the existing YOUR TYPE theme; only scales oversized desktop type down. */
-html,body{
-  touch-action:manipulation;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-}
-@media (min-width:901px){
-  .heroCopy h1{font-size:54px;line-height:.88;letter-spacing:-4px;}
-  .heroCopy .sub{font-size:13px;line-height:1.6;}
-  .eyebrow{font-size:10px;letter-spacing:4px;}
-  .sectionHead h2{font-size:32px;line-height:1;letter-spacing:-1.5px;}
-  .sectionNote{font-size:13px;line-height:1.7;}
-  .trendCopy h2{font-size:40px;line-height:.9;letter-spacing:-2px;}
-  .trendCopy>p:not(.eyebrow){font-size:13px;line-height:1.7;}
-  .trendCard b{font-size:12px;letter-spacing:1.6px;}
-  .trendCard small{font-size:10px;line-height:1.55;}
-  .buyerHead h2{font-size:40px;line-height:.9;letter-spacing:-2px;}
-  .motionHead h2{font-size:36px;line-height:1;letter-spacing:-2px;}
-  .motionSubline{font-size:9px;letter-spacing:1.8px;}
-  .highlightCards h3{font-size:13px;letter-spacing:1.8px;}
-  .highlightCards p{font-size:11px;line-height:1.65;}
-}
+/* Section product assignment controls — admin only, does not affect storefront styling. */
+.sectionProductsBox{margin-top:14px;padding-top:12px;border-top:1px solid #2d2d2d}
+.sectionProductsHead{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.sectionProductsHead b{margin-right:auto}
+.sectionProductChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:260px;overflow:auto;padding-right:2px}
+.sectionProductChoice{display:flex;align-items:center;gap:7px;padding:8px 9px;border:1px solid #292929;background:#0b0b0b;font-size:12px;cursor:pointer}
+.sectionProductChoice input{accent-color:#fff}
+@media(max-width:600px){.sectionProductChoices{grid-template-columns:1fr}.sectionProductsHead .btn{min-height:36px;padding:7px 10px}}
 
-/* Stop browser double-tap zoom on storefront surfaces without disabling normal scrolling. */
-button,a,img,.card,.motionCard,.buyerCard,.collectionMotionCard,.productMainImage,.imageLightbox{
-  touch-action:manipulation;
-}
+/* Section product assignment controls — admin only, storefront styling unchanged. */
+.sectionProductsBox{margin-top:14px;padding-top:12px;border-top:1px solid #2d2d2d}
+.sectionProductsHead{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.sectionProductsHead b{margin-right:auto}
+.sectionProductChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;max-height:260px;overflow:auto;padding-right:2px}
+.sectionProductChoice{display:flex;align-items:center;gap:7px;padding:8px 9px;border:1px solid #292929;background:#0b0b0b;font-size:12px;cursor:pointer}
+.sectionProductChoice input{accent-color:#fff}
+@media(max-width:600px){.sectionProductChoices{grid-template-columns:1fr}.sectionProductsHead .btn{min-height:36px;padding:7px 10px}}
+
+.sectionNumber{font-size:11px;letter-spacing:.18em;color:#777;margin-bottom:5px}
+.adminMap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.adminMapCard{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;background:rgba(255,255,255,.035)}
+.adminMapCard h3{margin:0 0 6px}.adminMapCard p{margin:0 0 12px;color:#999;font-size:13px}
+.switchRow{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid rgba(255,255,255,.08)}
+.sectionProductsBox{border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+.sectionProductsHead{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.sectionProductsHead b{margin-right:auto}
+.sectionProductChoices{display:grid;gap:7px;max-height:220px;overflow:auto;margin-top:10px}
+.sectionProductChoice{display:flex;gap:8px;align-items:center;font-size:13px}
